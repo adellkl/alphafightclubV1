@@ -1,0 +1,21 @@
+# robots.txt pour Alpha Fight Club
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://alphafightclub.fr/sitemap.xml
+
+# Crawl-delay (optionnel, pour éviter la surcharge)
+Crawl-delay: 1
+
+# Moteurs de recherche spécifiques
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Bingbot
+Allow: /
