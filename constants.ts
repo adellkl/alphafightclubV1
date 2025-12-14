@@ -79,7 +79,7 @@ export const COACHES: Coach[] = [
     name: "Sébastien Haddadj",
     role: "Assistant & Compétiteur",
     bio: "Récompensé par le prix de la ville de Saint-Ouen en 2015 pour ses performances sportives.",
-    image: "/images/sebastien.jpg"
+    image: "/images/team/Sébastien Haddadj.jpeg"
   },
   {
     name: "Théodore Aslamatzidis",
