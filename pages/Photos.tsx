@@ -39,13 +39,13 @@ const Photos: React.FC = () => {
     <main className="pt-32">
       <SEO {...seoConfig.photos} />
       {/* Simple Header */}
-      <div className="container mx-auto px-6 mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+      <div className="container mx-auto px-4 sm:px-6 mb-8 md:mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 md:gap-6">
         <div>
-          <h1 className="text-5xl font-display font-bold text-black uppercase mb-4 text-left">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-black uppercase mb-3 md:mb-4 text-left">
             Photos
           </h1>
-          <div className="w-20 h-1 bg-brand-red mb-6"></div>
-          <p className="text-gray-500 text-lg max-w-2xl text-left">
+          <div className="w-20 h-1 bg-brand-red mb-4 md:mb-6"></div>
+          <p className="text-gray-500 text-base md:text-lg max-w-2xl text-left">
              Suivez le quotidien du club sur Instagram <span className="text-brand-red font-bold">@thomas_alpha_fight_club</span>
           </p>
         </div>
@@ -54,43 +54,44 @@ const Photos: React.FC = () => {
           href="https://www.instagram.com/thomas_alpha_fight_club/" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white px-6 py-3 font-bold uppercase tracking-widest text-sm hover:opacity-90 transition-opacity rounded-sm flex items-center gap-2 shadow-lg"
+          className="bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white px-4 md:px-6 py-2.5 md:py-3 font-bold uppercase tracking-widest text-xs md:text-sm hover:opacity-90 transition-opacity rounded-sm flex items-center gap-2 shadow-lg"
         >
-          <Instagram size={20} /> Suivre
+          <Instagram size={18} /> Suivre
         </a>
       </div>
 
-      <Section gray className="pt-10">
+      <Section gray className="pt-6 md:pt-10">
         {/* Grille mosaïque avec tailles variées */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[200px]">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-4 auto-rows-[120px] sm:auto-rows-[150px] md:auto-rows-[200px]">
           {CLUB_PHOTOS.map((photo, idx) => {
             // Pattern de tailles variées pour effet mosaïque
             let gridClasses = '';
 
             // Pattern: Grand, petit, petit, moyen, grand, petit...
-            if (idx === 0) gridClasses = 'col-span-2 row-span-2';
+            // Sur mobile, on simplifie la grille
+            if (idx === 0) gridClasses = 'col-span-2 row-span-2 sm:col-span-2 sm:row-span-2';
             else if (idx === 1) gridClasses = 'col-span-1 row-span-1';
             else if (idx === 2) gridClasses = 'col-span-1 row-span-1';
-            else if (idx === 3) gridClasses = 'col-span-2 row-span-1';
-            else if (idx === 4) gridClasses = 'col-span-2 row-span-2';
+            else if (idx === 3) gridClasses = 'col-span-2 row-span-1 sm:col-span-2 sm:row-span-1';
+            else if (idx === 4) gridClasses = 'col-span-2 row-span-2 sm:col-span-2 sm:row-span-2';
             else if (idx === 5) gridClasses = 'col-span-1 row-span-1';
-            else if (idx === 6) gridClasses = 'col-span-1 row-span-2';
-            else if (idx === 7) gridClasses = 'col-span-2 row-span-1';
+            else if (idx === 6) gridClasses = 'col-span-1 row-span-2 sm:col-span-1 sm:row-span-2';
+            else if (idx === 7) gridClasses = 'col-span-2 row-span-1 sm:col-span-2 sm:row-span-1';
             else if (idx === 8) gridClasses = 'col-span-1 row-span-1';
-            else if (idx === 9) gridClasses = 'col-span-2 row-span-2';
+            else if (idx === 9) gridClasses = 'col-span-2 row-span-2 sm:col-span-2 sm:row-span-2';
             else if (idx === 10) gridClasses = 'col-span-1 row-span-1';
             else if (idx === 11) gridClasses = 'col-span-1 row-span-1';
-            else if (idx === 12) gridClasses = 'col-span-1 row-span-2';
-            else if (idx === 13) gridClasses = 'col-span-2 row-span-1';
-            else if (idx === 14) gridClasses = 'col-span-2 row-span-2';
+            else if (idx === 12) gridClasses = 'col-span-1 row-span-2 sm:col-span-1 sm:row-span-2';
+            else if (idx === 13) gridClasses = 'col-span-2 row-span-1 sm:col-span-2 sm:row-span-1';
+            else if (idx === 14) gridClasses = 'col-span-2 row-span-2 sm:col-span-2 sm:row-span-2';
             else if (idx === 15) gridClasses = 'col-span-1 row-span-1';
             else if (idx === 16) gridClasses = 'col-span-1 row-span-1';
-            else if (idx === 17) gridClasses = 'col-span-2 row-span-1';
-            else if (idx === 18) gridClasses = 'col-span-1 row-span-2';
-            else if (idx === 19) gridClasses = 'col-span-2 row-span-2';
+            else if (idx === 17) gridClasses = 'col-span-2 row-span-1 sm:col-span-2 sm:row-span-1';
+            else if (idx === 18) gridClasses = 'col-span-1 row-span-2 sm:col-span-1 sm:row-span-2';
+            else if (idx === 19) gridClasses = 'col-span-2 row-span-2 sm:col-span-2 sm:row-span-2';
             else if (idx === 20) gridClasses = 'col-span-1 row-span-1';
             else if (idx === 21) gridClasses = 'col-span-1 row-span-1';
-            else if (idx === 22) gridClasses = 'col-span-2 row-span-1';
+            else if (idx === 22) gridClasses = 'col-span-2 row-span-1 sm:col-span-2 sm:row-span-1';
 
             return (
               <div

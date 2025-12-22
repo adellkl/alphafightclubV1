@@ -15,12 +15,13 @@ const Navbar: React.FC = () => {
   }, [location]);
 
   return (
-    <nav className="fixed w-full z-50 bg-white border-b border-gray-100 py-4 shadow-sm">
-      <div className="container mx-auto px-6 flex justify-between items-center">
+    <nav className="fixed w-full z-50 bg-white border-b border-gray-100 py-3 md:py-4 shadow-sm">
+      <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
         {/* Logo */}
-        <NavLink to="/" className="text-2xl font-display font-bold italic tracking-tighter uppercase flex items-center gap-1 group">
+        <NavLink to="/" className="text-lg sm:text-xl md:text-2xl font-display font-bold italic tracking-tighter uppercase flex items-center gap-1 group">
           <span className="text-brand-red group-hover:scale-105 transition-transform">ALPHA</span> 
-          <span className="text-black group-hover:text-gray-700 transition-colors">Fight Club</span>
+          <span className="text-black group-hover:text-gray-700 transition-colors hidden sm:inline">Fight Club</span>
+          <span className="text-black group-hover:text-gray-700 transition-colors sm:hidden">FC</span>
         </NavLink>
 
         {/* Desktop Menu */}
@@ -80,7 +81,7 @@ const Navbar: React.FC = () => {
               )}
             </div>
           ))}
-          <NavLink to="/contact" className="ml-4 bg-brand-red text-white px-6 py-2.5 font-display font-bold uppercase italic skew-x-[-10deg] hover:bg-black transition-colors shadow-lg">
+          <NavLink to="/contact" className="ml-4 bg-brand-red text-white px-4 md:px-6 py-2 md:py-2.5 font-display font-bold uppercase italic skew-x-[-10deg] hover:bg-black transition-colors shadow-lg text-xs md:text-sm">
             <span className="block skew-x-[10deg]">Essai Gratuit</span>
           </NavLink>
         </div>

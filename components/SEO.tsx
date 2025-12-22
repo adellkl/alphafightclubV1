@@ -6,6 +6,7 @@ interface SEOProps {
   keywords?: string;
   ogImage?: string;
   ogType?: string;
+  twitterCard?: string;
   canonicalUrl?: string;
   jsonLd?: object | object[];
 }
@@ -16,6 +17,7 @@ const SEO: React.FC<SEOProps> = ({
   keywords,
   ogImage = '/images/og-default.jpg',
   ogType = 'website',
+  twitterCard = 'summary_large_image',
   canonicalUrl,
   jsonLd
 }) => {
@@ -52,7 +54,7 @@ const SEO: React.FC<SEOProps> = ({
     updateMetaTag('og:locale', 'fr_FR', true);
 
     // Twitter Card tags
-    updateMetaTag('twitter:card', 'summary_large_image');
+    updateMetaTag('twitter:card', twitterCard);
     updateMetaTag('twitter:title', title);
     updateMetaTag('twitter:description', description);
     updateMetaTag('twitter:image', ogImage);
@@ -82,7 +84,7 @@ const SEO: React.FC<SEOProps> = ({
         document.head.appendChild(scriptElement);
       });
     }
-  }, [title, description, keywords, ogImage, ogType, canonicalUrl, jsonLd]);
+  }, [title, description, keywords, ogImage, ogType, twitterCard, canonicalUrl, jsonLd]);
 
   return null;
 };

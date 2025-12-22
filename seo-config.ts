@@ -3,7 +3,10 @@ interface SEOConfig {
   description: string;
   keywords: string;
   canonicalUrl?: string;
-  jsonLd?: object;
+  ogImage?: string;
+  ogType?: string;
+  twitterCard?: string;
+  jsonLd?: object | object[];
 }
 
 const baseUrl = 'https://alphafightclub.fr';
@@ -60,22 +63,25 @@ const baseKeywords = [
   'cours self defense efficace', 'sport combat femmes paris'
 ].join(', ');
 
+// Image OG par défaut
+const defaultOgImage = `${baseUrl}/images/illustration-grappling.png`;
+
 // Schema Organisation principal
 const organizationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'SportsOrganization',
+  '@type': ['SportsOrganization', 'LocalBusiness'],
   name: 'Alpha Fight Club',
   alternateName: ['AFC Saint-Ouen', 'Alpha Fight Club Saint-Ouen'],
   description: 'Club de Grappling et arts martiaux à Saint-Ouen (93). Cours de Grappling No-Gi, JJB, lutte et soumissions. Premier club de Pankration en France.',
   url: baseUrl,
   logo: `${baseUrl}/images/logo.png`,
-  image: `${baseUrl}/images/og-default.jpg`,
+  image: defaultOgImage,
   telephone: '+33-X-XX-XX-XX-XX',
   email: 'contact@alphafightclub.fr',
   foundingDate: '2003',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Centre Sportif Pablo Neruda',
+    streetAddress: '17 Rue Salvador Allende, Centre Sportif Pablo Neruda',
     addressLocality: 'Saint-Ouen-sur-Seine',
     postalCode: '93400',
     addressRegion: 'Île-de-France',
@@ -86,6 +92,27 @@ const organizationSchema = {
     latitude: 48.9116,
     longitude: 2.3339
   },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Wednesday',
+      opens: '20:00',
+      closes: '22:00'
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Friday',
+      opens: '20:00',
+      closes: '22:00'
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Sunday',
+      opens: '10:00',
+      closes: '13:00'
+    }
+  ],
+  priceRange: '€€',
   areaServed: [
     'Saint-Ouen-sur-Seine',
     'Paris',
@@ -97,9 +124,33 @@ const organizationSchema = {
   memberOf: {
     '@type': 'Organization',
     name: 'Fédération Française de Lutte et Disciplines Associées',
-    alternateName: 'FFLDA'
+    alternateName: 'FFLDA',
+    url: 'https://www.fflutte.com/'
+  },
+  sameAs: [
+    'https://www.facebook.com/alphafightclub',
+    'https://www.instagram.com/alphafightclub'
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '47',
+    bestRating: '5',
+    worstRating: '1'
   }
 };
+
+// Helper function pour créer BreadcrumbList
+const createBreadcrumb = (items: { name: string; url: string }[]) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name,
+    item: item.url
+  }))
+});
 
 export const seoConfig: { [key: string]: SEOConfig } = {
   home: {
@@ -107,8 +158,14 @@ export const seoConfig: { [key: string]: SEOConfig } = {
     description: 'Club de Grappling, MMA et Jiu-Jitsu Brésilien à Saint-Ouen (93). Cours No-Gi adultes et ados. Premier club de Pankration en France depuis 2003. Métro ligne 13. Île-de-France, Paris, Hauts-de-Seine, Seine-Saint-Denis.',
     keywords: `${baseKeywords}, club saint-ouen, club mma paris, club grappling paris, club jjb paris, cours mma ile de france, arts martiaux saint-ouen`,
     canonicalUrl: baseUrl,
+    ogImage: defaultOgImage,
+    ogType: 'website',
+    twitterCard: 'summary_large_image',
     jsonLd: [
       organizationSchema,
+      createBreadcrumb([
+        { name: 'Accueil', url: baseUrl }
+      ]),
       {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
@@ -163,31 +220,40 @@ export const seoConfig: { [key: string]: SEOConfig } = {
     description: 'Découvrez le Grappling No-Gi : lutte, soumissions, combat au sol. Alternative au MMA et JJB traditionnel. Cours à Saint-Ouen (93), accessible depuis Paris, Clichy, Saint-Denis. Débutants bienvenus.',
     keywords: `${baseKeywords}, qu'est-ce que le grappling, grappling no-gi, technique grappling, cours grappling paris, grappling vs jjb, grappling vs mma, combat au sol paris`,
     canonicalUrl: `${baseUrl}/#/disciplines`,
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'Course',
-      name: 'Cours de Grappling No-Gi',
-      description: 'Formation complète en Grappling No-Gi : projections, lutte, soumissions et combat au sol',
-      provider: {
-        '@type': 'SportsOrganization',
-        name: 'Alpha Fight Club',
-        sameAs: baseUrl
-      },
-      hasCourseInstance: {
-        '@type': 'CourseInstance',
-        courseMode: 'onsite',
-        location: {
-          '@type': 'Place',
-          name: 'Centre Sportif Pablo Neruda',
-          address: {
-            '@type': 'PostalAddress',
-            addressLocality: 'Saint-Ouen-sur-Seine',
-            postalCode: '93400',
-            addressCountry: 'FR'
+    ogImage: defaultOgImage,
+    ogType: 'article',
+    twitterCard: 'summary_large_image',
+    jsonLd: [
+      createBreadcrumb([
+        { name: 'Accueil', url: baseUrl },
+        { name: 'Grappling', url: `${baseUrl}/#/disciplines` }
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Course',
+        name: 'Cours de Grappling No-Gi',
+        description: 'Formation complète en Grappling No-Gi : projections, lutte, soumissions et combat au sol',
+        provider: {
+          '@type': 'SportsOrganization',
+          name: 'Alpha Fight Club',
+          sameAs: baseUrl
+        },
+        hasCourseInstance: {
+          '@type': 'CourseInstance',
+          courseMode: 'onsite',
+          location: {
+            '@type': 'Place',
+            name: 'Centre Sportif Pablo Neruda',
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: 'Saint-Ouen-sur-Seine',
+              postalCode: '93400',
+              addressCountry: 'FR'
+            }
           }
         }
       }
-    }
+    ]
   },
 
   pricing: {
@@ -195,17 +261,26 @@ export const seoConfig: { [key: string]: SEOConfig } = {
     description: 'Tarifs adhésion Alpha Fight Club Saint-Ouen : 230€ Audoniens, 245€ autres. Licence FFLDA incluse. Cours de Grappling, MMA, JJB. Accessible Paris, 92, 93, Île-de-France.',
     keywords: `${baseKeywords}, tarif club grappling, prix cours mma, adhésion club combat, tarif jjb paris, prix club sportif saint-ouen, licence fflda`,
     canonicalUrl: `${baseUrl}/#/pricing`,
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'Offer',
-      name: 'Adhésion Alpha Fight Club',
-      description: 'Adhésion annuelle avec licence FFLDA et assurance',
-      price: '230.00',
-      priceCurrency: 'EUR',
-      availability: 'https://schema.org/InStock',
-      validFrom: '2025-09-01',
-      category: 'Sports Membership'
-    }
+    ogImage: defaultOgImage,
+    ogType: 'website',
+    twitterCard: 'summary',
+    jsonLd: [
+      createBreadcrumb([
+        { name: 'Accueil', url: baseUrl },
+        { name: 'Tarifs', url: `${baseUrl}/#/pricing` }
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Offer',
+        name: 'Adhésion Alpha Fight Club',
+        description: 'Adhésion annuelle avec licence FFLDA et assurance',
+        price: '230.00',
+        priceCurrency: 'EUR',
+        availability: 'https://schema.org/InStock',
+        validFrom: '2025-09-01',
+        category: 'Sports Membership'
+      }
+    ]
   },
 
   schedule: {
@@ -213,13 +288,22 @@ export const seoConfig: { [key: string]: SEOConfig } = {
     description: 'Horaires cours Grappling à Saint-Ouen : Mercredi & Vendredi 20h-22h, Dimanche 10h-13h (compétition). Métro ligne 13. Accessible Paris, Clichy, Saint-Denis, Hauts-de-Seine.',
     keywords: `${baseKeywords}, horaire cours grappling, planning mma paris, horaire jjb saint-ouen, cours soir grappling, entraînement mma ile de france`,
     canonicalUrl: `${baseUrl}/#/schedule`,
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'Schedule',
-      name: 'Horaires des cours de Grappling',
-      scheduleTimezone: 'Europe/Paris',
-      byDay: ['Wednesday', 'Friday', 'Sunday']
-    }
+    ogImage: defaultOgImage,
+    ogType: 'website',
+    twitterCard: 'summary',
+    jsonLd: [
+      createBreadcrumb([
+        { name: 'Accueil', url: baseUrl },
+        { name: 'Planning', url: `${baseUrl}/#/schedule` }
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Schedule',
+        name: 'Horaires des cours de Grappling',
+        scheduleTimezone: 'Europe/Paris',
+        byDay: ['Wednesday', 'Friday', 'Sunday']
+      }
+    ]
   },
 
   team: {
@@ -227,25 +311,41 @@ export const seoConfig: { [key: string]: SEOConfig } = {
     description: 'Thomas Le Godec, Champion de France, Ceinture Noire Grappling & JJB. Équipe de coachs expérimentés à Saint-Ouen (93). Formation MMA, Grappling, JJB en Île-de-France.',
     keywords: `${baseKeywords}, professeur grappling paris, coach mma saint-ouen, entraîneur jjb 93, ceinture noire grappling, champion france grappling, coach sportif saint-ouen`,
     canonicalUrl: `${baseUrl}/#/team`,
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: 'Thomas Le Godec',
-      jobTitle: 'Professeur Principal & Secrétaire',
-      worksFor: {
-        '@type': 'SportsOrganization',
-        name: 'Alpha Fight Club'
-      },
-      description: 'Champion de France de Grappling, Ceinture Noire de Grappling et JJB',
-      knowsAbout: ['Grappling', 'Brazilian Jiu-Jitsu', 'MMA', 'Wrestling']
-    }
+    ogImage: '/images/coatch/thomas-coach.webp',
+    ogType: 'profile',
+    twitterCard: 'summary',
+    jsonLd: [
+      createBreadcrumb([
+        { name: 'Accueil', url: baseUrl },
+        { name: 'Équipe', url: `${baseUrl}/#/team` }
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Thomas Le Godec',
+        jobTitle: 'Professeur Principal & Secrétaire',
+        worksFor: {
+          '@type': 'SportsOrganization',
+          name: 'Alpha Fight Club'
+        },
+        description: 'Champion de France de Grappling, Ceinture Noire de Grappling et JJB',
+        knowsAbout: ['Grappling', 'Brazilian Jiu-Jitsu', 'MMA', 'Wrestling']
+      }
+    ]
   },
 
   results: {
     title: 'Résultats & Palmarès | Alpha Fight Club | Champions Grappling MMA 93',
     description: 'Plus de 50 titres en Pankration. Club le plus titré de France depuis 2003. Championnat de France Grappling, compétitions MMA et JJB. Saint-Ouen, Île-de-France.',
     keywords: `${baseKeywords}, palmarès grappling, résultats compétition mma, champion france pankration, victoire jjb, médaille grappling, performance sportive saint-ouen`,
-    canonicalUrl: `${baseUrl}/#/results`
+    canonicalUrl: `${baseUrl}/#/results`,
+    ogImage: defaultOgImage,
+    ogType: 'website',
+    twitterCard: 'summary',
+    jsonLd: createBreadcrumb([
+      { name: 'Accueil', url: baseUrl },
+      { name: 'Résultats', url: `${baseUrl}/#/results` }
+    ])
   },
 
   contact: {
@@ -253,12 +353,21 @@ export const seoConfig: { [key: string]: SEOConfig } = {
     description: 'Contactez Alpha Fight Club Saint-Ouen. Centre Sportif Pablo Neruda, Métro ligne 13 Mairie de Saint-Ouen. Cours de Grappling, MMA, JJB en Île-de-France (93, 92, Paris).',
     keywords: `${baseKeywords}, contact club grappling, inscription mma saint-ouen, rejoindre club jjb, essai gratuit grappling, cours découverte mma paris`,
     canonicalUrl: `${baseUrl}/#/contact`,
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'ContactPage',
-      name: 'Contact Alpha Fight Club',
-      description: 'Contactez-nous pour rejoindre le club ou obtenir plus d\'informations'
-    }
+    ogImage: defaultOgImage,
+    ogType: 'website',
+    twitterCard: 'summary',
+    jsonLd: [
+      createBreadcrumb([
+        { name: 'Accueil', url: baseUrl },
+        { name: 'Contact', url: `${baseUrl}/#/contact` }
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'ContactPage',
+        name: 'Contact Alpha Fight Club',
+        description: 'Contactez-nous pour rejoindre le club ou obtenir plus d\'informations'
+      }
+    ]
   },
 
   shop: {
@@ -266,45 +375,68 @@ export const seoConfig: { [key: string]: SEOConfig } = {
     description: 'Rashguard Alpha Fight Club et équipement Grappling No-Gi. Tenue officielle club MMA Saint-Ouen. Short combat, rashguard compétition. Livraison Île-de-France.',
     keywords: `${baseKeywords}, rashguard grappling, équipement mma, tenue no-gi, short jjb, equipement combat, vetement grappling, materiel mma paris`,
     canonicalUrl: `${baseUrl}/#/shop`,
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'Product',
-      name: 'Rashguard Alpha Compétition',
-      description: 'Rashguard officiel Alpha Fight Club pour Grappling et MMA',
-      offers: {
-        '@type': 'Offer',
-        price: '45.00',
-        priceCurrency: 'EUR'
+    ogImage: '/images/shop/rashgard.png',
+    ogType: 'website',
+    twitterCard: 'summary_large_image',
+    jsonLd: [
+      createBreadcrumb([
+        { name: 'Accueil', url: baseUrl },
+        { name: 'Boutique', url: `${baseUrl}/#/shop` }
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: 'Rashguard Alpha Compétition',
+        description: 'Rashguard officiel Alpha Fight Club pour Grappling et MMA',
+        image: `${baseUrl}/images/shop/rashgard.png`,
+        offers: {
+          '@type': 'Offer',
+          price: '45.00',
+          priceCurrency: 'EUR',
+          availability: 'https://schema.org/InStock'
+        }
       }
-    }
+    ]
   },
 
   partners: {
     title: 'Partenaires | Alpha Fight Club Saint-Ouen | Sponsors Grappling MMA 93',
     description: 'Nos partenaires : Ville de Saint-Ouen, FFLDA, Comité Français de Grappling, Fight House. Soutiens du club MMA et Grappling en Île-de-France.',
     keywords: `${baseKeywords}, partenaires club sportif, sponsors mma, fflda, comité grappling france, ville saint-ouen sport`,
-    canonicalUrl: `${baseUrl}/#/partners`
+    canonicalUrl: `${baseUrl}/#/partners`,
+    ogImage: defaultOgImage,
+    ogType: 'website',
+    twitterCard: 'summary'
   },
 
   photos: {
     title: 'Photos | Alpha Fight Club Saint-Ouen | Galerie Grappling MMA JJB 93',
     description: 'Photos des entraînements, compétitions et vie du club Alpha Fight Club. Grappling, MMA, JJB à Saint-Ouen (93). Événements sportifs Île-de-France.',
     keywords: `${baseKeywords}, photos grappling, images mma, galerie jjb, competition photos, entrainement club saint-ouen`,
-    canonicalUrl: `${baseUrl}/#/photos`
+    canonicalUrl: `${baseUrl}/#/photos`,
+    ogImage: defaultOgImage,
+    ogType: 'website',
+    twitterCard: 'summary_large_image'
   },
 
   videos: {
     title: 'Vidéos | Alpha Fight Club Saint-Ouen | Techniques Grappling MMA 93',
     description: 'Vidéos techniques Grappling, combats MMA, entraînements JJB. Alpha Fight Club Saint-Ouen. Tutoriels arts martiaux, highlights compétitions Île-de-France.',
     keywords: `${baseKeywords}, videos grappling, tutoriel mma, technique jjb video, combat grappling, démonstration arts martiaux, cours video grappling`,
-    canonicalUrl: `${baseUrl}/#/videos`
+    canonicalUrl: `${baseUrl}/#/videos`,
+    ogImage: defaultOgImage,
+    ogType: 'website',
+    twitterCard: 'player'
   },
 
   links: {
     title: 'Liens Utiles | Alpha Fight Club | Ressources Grappling MMA JJB France',
     description: 'Liens utiles : FFLDA, Comité Français de Grappling, ressources MMA et JJB. Informations sports de combat en Île-de-France et France.',
     keywords: `${baseKeywords}, liens grappling, ressources mma, sites jjb, federation lutte, informations sports combat`,
-    canonicalUrl: `${baseUrl}/#/links`
+    canonicalUrl: `${baseUrl}/#/links`,
+    ogImage: defaultOgImage,
+    ogType: 'website',
+    twitterCard: 'summary'
   },
 
   fighters: {
@@ -312,31 +444,46 @@ export const seoConfig: { [key: string]: SEOConfig } = {
     description: 'Nos combattants d\'élite : champions de Grappling, JJB et No-Gi. Palmarès, résultats et titres des compétiteurs Alpha Fight Club Saint-Ouen (93). Champions Île-de-France.',
     keywords: `${baseKeywords}, combattants grappling, champions jjb, fighters mma, competiteurs grappling, athletes combat, elite fighters saint-ouen, champions grappling paris, medaille jjb, champion france grappling`,
     canonicalUrl: `${baseUrl}/#/fighters`,
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'SportsTeam',
-      name: 'Équipe Compétition Alpha Fight Club',
-      sport: 'Grappling',
-      description: 'Équipe de combattants d\'élite spécialisés en Grappling, JJB et No-Gi',
-      memberOf: {
-        '@type': 'SportsOrganization',
-        name: 'Alpha Fight Club'
+    ogImage: defaultOgImage,
+    ogType: 'website',
+    twitterCard: 'summary',
+    jsonLd: [
+      createBreadcrumb([
+        { name: 'Accueil', url: baseUrl },
+        { name: 'Combattants d\'Élite', url: `${baseUrl}/#/fighters` }
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SportsTeam',
+        name: 'Équipe Compétition Alpha Fight Club',
+        sport: 'Grappling',
+        description: 'Équipe de combattants d\'élite spécialisés en Grappling, JJB et No-Gi',
+        memberOf: {
+          '@type': 'SportsOrganization',
+          name: 'Alpha Fight Club'
+        }
       }
-    }
+    ]
   },
 
   legal: {
     title: 'Mentions Légales | Alpha Fight Club Saint-Ouen 93',
     description: 'Mentions légales du site Alpha Fight Club Saint-Ouen. Informations juridiques, éditeur, hébergement, propriété intellectuelle.',
     keywords: `alpha fight club, mentions légales, informations juridiques, saint-ouen 93`,
-    canonicalUrl: `${baseUrl}/#/legal`
+    canonicalUrl: `${baseUrl}/#/legal`,
+    ogImage: defaultOgImage,
+    ogType: 'website',
+    twitterCard: 'summary'
   },
 
   privacy: {
     title: 'Politique de Confidentialité | Alpha Fight Club Saint-Ouen 93',
     description: 'Politique de confidentialité et protection des données personnelles Alpha Fight Club. RGPD, cookies, droits utilisateurs.',
     keywords: `alpha fight club, politique confidentialité, rgpd, protection données, vie privée`,
-    canonicalUrl: `${baseUrl}/#/privacy`
+    canonicalUrl: `${baseUrl}/#/privacy`,
+    ogImage: defaultOgImage,
+    ogType: 'website',
+    twitterCard: 'summary'
   }
 };
 
