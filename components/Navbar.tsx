@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
         {/* Logo */}
         <NavLink to="/" className="text-lg sm:text-xl md:text-2xl font-display font-bold italic tracking-tighter uppercase flex items-center gap-1 group">
-          <span className="text-brand-red group-hover:scale-105 transition-transform">ALPHA</span> 
+          <span className="text-brand-red group-hover:scale-105 transition-transform">ALPHA</span>
           <span className="text-black group-hover:text-gray-700 transition-colors hidden sm:inline">Fight Club</span>
           <span className="text-black group-hover:text-gray-700 transition-colors sm:hidden">FC</span>
         </NavLink>
@@ -27,17 +27,16 @@ const Navbar: React.FC = () => {
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-6">
           {NAV_ITEMS.map((item, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className="relative group"
               onMouseEnter={() => setHoveredIndex(idx)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
               {item.children ? (
-                <button 
-                  className={`flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors py-2 ${
-                    hoveredIndex === idx ? 'text-brand-red' : 'text-gray-600 hover:text-brand-red'
-                  }`}
+                <button
+                  className={`flex items-center gap-1 text-sm font-bold uppercase tracking-widest transition-colors py-2 ${hoveredIndex === idx ? 'text-brand-red' : 'text-gray-600 hover:text-brand-red'
+                    }`}
                 >
                   {item.label}
                   <ChevronDown size={14} className={`transition-transform duration-200 ${hoveredIndex === idx ? 'rotate-180' : ''}`} />
@@ -45,7 +44,7 @@ const Navbar: React.FC = () => {
               ) : (
                 <NavLink
                   to={item.path}
-                  className={({ isActive }) => 
+                  className={({ isActive }) =>
                     `text-sm font-bold uppercase tracking-widest transition-colors block py-2 ${isActive ? 'text-brand-red' : 'text-gray-600 hover:text-brand-red'}`
                   }
                 >
@@ -87,7 +86,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <button 
+        <button
           className="lg:hidden text-black"
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -98,7 +97,7 @@ const Navbar: React.FC = () => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: '100vh' }}
             exit={{ opacity: 0, height: 0 }}
@@ -133,11 +132,11 @@ const Navbar: React.FC = () => {
                 )}
               </div>
             ))}
-             <div className="p-6">
-               <NavLink to="/contact" onClick={() => setIsOpen(false)} className="block w-full text-center bg-brand-red text-white px-8 py-4 font-display font-bold uppercase italic skew-x-[-10deg]">
-                  <span className="block skew-x-[10deg]">Essai Gratuit</span>
-                </NavLink>
-             </div>
+            <div className="p-6">
+              <NavLink to="/contact" onClick={() => setIsOpen(false)} className="block w-full text-center bg-brand-red text-white px-8 py-4 font-display font-bold uppercase italic skew-x-[-10deg]">
+                <span className="block skew-x-[10deg]">Essai Gratuit</span>
+              </NavLink>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
