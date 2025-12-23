@@ -23,113 +23,185 @@ const Home: React.FC = () => {
       {/* Animation d'introduction active uniquement sur la Home */}
       <Preloader />
 
-      {/* NOUVEAU HERO BANNER */}
-      <div className="relative h-screen min-h-[600px] md:min-h-[800px] flex flex-col justify-center overflow-hidden bg-black">
-
-        {/* 1. Image de fond sombre (Photo de Groupe) */}
+      {/* HERO BANNER COMPLEXE */}
+      <div className="relative min-h-screen bg-black overflow-hidden">
+        {/* Background layers */}
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero-bg.jpg"
-            alt="Club Grappling MMA Saint-Ouen - Alpha Fight Club - Équipe de combattants en No-Gi"
-            className="w-full h-full object-cover object-center opacity-30 grayscale"
+            alt="Alpha Fight Club - Grappling"
+            className="w-full h-full object-cover object-center opacity-30"
           />
-          {/* Gradients pour fondre l'image et assombrir pour le texte */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/80"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent"></div>
-        </div>
-
-        {/* 2. TEXTE GÉANT DÉFILANT (Outline Style) - Arrière-plan */}
-        <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full overflow-hidden z-0 opacity-20 select-none pointer-events-none hidden md:block">
+          <div className="absolute inset-0 bg-gradient-to-br from-black via-black/70 to-brand-red/40 mix-blend-multiply"></div>
+          <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-black/70 to-transparent"></div>
           <motion.div
-            className="whitespace-nowrap flex"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-          >
-             {/* Répétition du texte pour le flux continu */}
-             {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="text-[15vh] md:text-[20vh] leading-none font-display font-bold uppercase text-transparent px-6 md:px-10" style={{ WebkitTextStroke: "2px rgba(255,255,255, 0.5)" }}>
-                  GRAPPLING • LUTA LIVRE • WRESTLING • SAINT-OUEN •
-                </div>
-             ))}
-          </motion.div>
-        </div>
-
-        {/* 3. Contenu Principal (Au premier plan) */}
-        <div className="container mx-auto px-4 sm:px-6 z-10 relative pt-20 md:pt-10">
+            className="absolute -left-20 -top-32 w-[480px] h-[480px] rounded-full bg-brand-red/30 blur-3xl"
+            animate={{ x: [0, 20, -10, 0], y: [0, -10, 15, 0] }}
+            transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
+          />
           <motion.div
-            initial={isFirstVisit ? { opacity: 0, y: 50 } : { opacity: 1, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={isFirstVisit ? { duration: 0.8, ease: "easeOut", delay: 1.2 } : { duration: 0 }}
-            className="max-w-5xl"
-          >
-            {/* Petit badge supérieur */}
-            <div className="inline-flex items-center gap-2 border border-brand-red/50 bg-black/50 backdrop-blur-md text-white px-3 md:px-4 py-2 font-display font-bold uppercase tracking-widest text-xs md:text-sm mb-4 md:mb-6 rounded-sm">
-              <span className="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
-              Saison 2025-2026
-            </div>
-            
-            {/* Titre Principal */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-display font-bold text-white uppercase leading-[0.85] tracking-tighter mb-6 md:mb-8 drop-shadow-2xl">
-              Alpha <span className="text-transparent bg-clip-text bg-gradient-to-br from-brand-red to-red-800">Fight</span><br/>
-              Club
-            </h1>
-            
-            {/* Sous-titre */}
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 font-light max-w-xl border-l-4 border-brand-red pl-4 md:pl-6 mb-8 md:mb-12 leading-relaxed">
-              L'excellence du <strong>Grappling</strong> à Saint-Ouen. <br className="hidden sm:block"/>
-              Technique. Combat. Performance.
-            </p>
-
-            {/* Boutons CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-5">
-               <a 
-                href={REGISTRATION_LINK} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-brand-red text-white px-6 md:px-10 py-4 md:py-5 font-display font-bold uppercase text-base md:text-lg tracking-widest hover:bg-white hover:text-black transition-all shadow-[0_0_20px_rgba(217,4,41,0.4)] flex items-center justify-center gap-3 group"
-               >
-                  S'inscrire Maintenant
-                  <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-               </a>
-               <Link 
-                to="/schedule" 
-                className="px-6 md:px-10 py-4 md:py-5 border border-white/30 text-white font-display font-bold uppercase text-base md:text-lg tracking-widest hover:bg-white hover:text-black transition-all flex items-center justify-center gap-3"
-               >
-                  Voir le Planning
-               </Link>
-            </div>
-          </motion.div>
+            className="absolute bottom-[-120px] right-[-80px] w-[420px] h-[420px] rounded-full bg-red-900/30 blur-3xl"
+            animate={{ x: [0, -10, 10, 0], y: [0, 10, -15, 0] }}
+            transition={{ repeat: Infinity, duration: 14, ease: "easeInOut" }}
+          />
         </div>
 
-        {/* 4. Scroll Banner (Informations défilantes en bas) */}
-        <div className="absolute bottom-0 w-full bg-white border-t-4 border-brand-red py-3 md:py-4 z-20 shadow-2xl hidden sm:block">
-           <motion.div 
-            className="whitespace-nowrap flex gap-8 md:gap-12"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
-          >
-            {[1, 2, 3, 4, 5].map((i) => (
-              <div key={i} className="flex items-center gap-6 md:gap-12">
-                 <div className="flex items-center gap-2 md:gap-3 text-black font-display font-bold uppercase text-sm md:text-lg tracking-wider">
-                    <MapPin className="text-brand-red" size={20} />
-                    <span className="hidden md:inline">17 Rue Salvador Allende, Saint-Ouen</span>
-                    <span className="md:hidden">Saint-Ouen</span>
-                 </div>
-                 <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-                 <div className="flex items-center gap-2 md:gap-3 text-black font-display font-bold uppercase text-sm md:text-lg tracking-wider">
-                    <Clock className="text-brand-red" size={20} />
-                    <span>Mer & Ven 20h-22h</span>
-                 </div>
-                 <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-                 <div className="flex items-center gap-2 md:gap-3 text-black font-display font-bold uppercase text-sm md:text-lg tracking-wider">
-                    <Calendar className="text-brand-red" size={20} />
-                    <span className="hidden md:inline">Reprise le 3 Septembre</span>
-                    <span className="md:hidden">3 Sept</span>
-                 </div>
-                 <div className="w-8 md:w-12 h-[2px] bg-brand-red"></div>
+        {/* Floating stats */}
+        <div className="absolute inset-0 z-10 pointer-events-none">
+          <div className="absolute top-24 right-6 md:right-12 bg-white/10 backdrop-blur-md border border-white/10 rounded-md p-4 text-white shadow-lg max-w-[240px]">
+            <div className="text-xs uppercase tracking-widest text-gray-200">Alpha Fight Club</div>
+            <div className="text-3xl font-display font-bold">2003</div>
+            <p className="text-xs text-gray-200 mt-1">Affilié FFLDA • No-Gi Only</p>
+            <div className="mt-3 grid grid-cols-3 text-center text-sm">
+              <div>
+                <div className="font-bold text-white">50+</div>
+                <div className="text-gray-300 text-[11px]">Titres</div>
               </div>
-            ))}
-          </motion.div>
+              <div>
+                <div className="font-bold text-white">93</div>
+                <div className="text-gray-300 text-[11px]">Saint-Ouen</div>
+              </div>
+              <div>
+                <div className="font-bold text-white">No-Gi</div>
+                <div className="text-gray-300 text-[11px]">Only</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-20 container mx-auto px-4 sm:px-6 py-20 md:py-28 min-h-screen flex flex-col justify-center">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            {/* Left column */}
+            <motion.div
+              initial={isFirstVisit ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="lg:col-span-7 space-y-6"
+            >
+              <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-3 py-2 rounded-sm backdrop-blur-sm text-xs md:text-sm uppercase tracking-widest">
+                Saison 2025-2026
+                <span className="w-2 h-2 bg-brand-red rounded-full animate-pulse"></span>
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-display font-bold text-white uppercase leading-[0.9] tracking-tight">
+                Alpha <span className="text-transparent bg-clip-text bg-gradient-to-br from-brand-red to-red-800">Fight</span> Club
+              </h1>
+
+              <p className="text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed">
+                Grappling No-Gi à Saint-Ouen. Technique, intensité et pédagogie dans un club fondé en 2003.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                <a
+                  href={REGISTRATION_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-brand-red text-white px-6 py-4 font-display font-bold uppercase text-sm md:text-base tracking-widest hover:bg-white hover:text-black transition-all shadow-[0_0_25px_rgba(217,4,41,0.35)] flex items-center justify-center gap-2 rounded-sm"
+                >
+                  S'inscrire Maintenant
+                  <ArrowRight size={18} />
+                </a>
+                <Link
+                  to="/schedule"
+                  className="px-6 py-4 border border-white/40 text-white font-display font-bold uppercase text-sm md:text-base tracking-widest hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2 rounded-sm"
+                >
+                  Voir le Planning
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-white">
+                <div className="bg-white/10 border border-white/10 rounded-sm p-3">
+                  <div className="text-xs uppercase text-gray-300">Lieu</div>
+                  <div className="font-bold">Saint-Ouen (93)</div>
+                </div>
+                <div className="bg-white/10 border border-white/10 rounded-sm p-3">
+                  <div className="text-xs uppercase text-gray-300">Horaires</div>
+                  <div className="font-bold">Mer & Ven 20h-22h</div>
+                </div>
+                <div className="bg-white/10 border border-white/10 rounded-sm p-3">
+                  <div className="text-xs uppercase text-gray-300">Disciplines</div>
+                  <div className="font-bold">Grappling / No-Gi</div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right column card */}
+            <motion.div
+              initial={isFirstVisit ? { opacity: 0, y: 40 } : { opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+              className="lg:col-span-5"
+            >
+              <div className="bg-white/90 backdrop-blur-xl border border-white/40 rounded-md shadow-2xl p-6 space-y-5">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-xs uppercase text-gray-500 tracking-widest">Essai gratuit</p>
+                    <h3 className="text-xl font-display font-bold text-black">Réserve ton premier cours</h3>
+                  </div>
+                  <div className="text-sm font-semibold text-brand-red">Semaine en cours</div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-3">
+                  {["Mercredi 20h-22h", "Vendredi 20h-22h", "Dimanche 10h-13h"].map((slot, i) => (
+                    <div key={i} className="flex items-center justify-between border border-gray-200 rounded-sm px-3 py-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-brand-red"></div>
+                        <span className="text-sm font-semibold text-black">{slot}</span>
+                      </div>
+                      <span className="text-xs text-gray-500">Saint-Ouen</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="bg-gray-50 border border-gray-200 rounded-sm p-4">
+                  <p className="text-sm font-semibold text-black">Adresse</p>
+                  <p className="text-sm text-gray-700">
+                    Centre Sportif Pablo Neruda<br />
+                    17 Rue Salvador Allende, 93400 Saint-Ouen<br />
+                    Métro 13 — Mairie de Saint-Ouen
+                  </p>
+                </div>
+
+                <a
+                  href={REGISTRATION_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center bg-brand-red text-white px-5 py-3 font-bold uppercase text-sm rounded-sm hover:bg-black transition-colors"
+                >
+                  Réserver mon essai
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Bandeau d'infos défilant */}
+        <div className="absolute bottom-0 w-full bg-white/95 backdrop-blur border-t-4 border-brand-red py-3 md:py-4 z-30 overflow-hidden">
+          {(() => {
+            const items = [
+              "Saint-Ouen (93) • Centre Pablo Neruda",
+              "Mer & Ven 20h-22h",
+              "Dimanche 10h-13h (compétition)",
+              "Essai gratuit sans engagement",
+              "No-Gi Only"
+            ];
+            const looped = [...items, ...items]; // duplication pour un défilement infini sans coupure
+            return (
+              <motion.div
+                className="whitespace-nowrap flex gap-8 md:gap-12 px-4"
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{ repeat: Infinity, repeatType: "loop", duration: 22, ease: "linear" }}
+              >
+                {looped.map((text, i) => (
+                  <div key={i} className="flex items-center gap-3 text-black font-display font-bold uppercase text-sm md:text-base tracking-wide">
+                    <span className="w-2 h-2 rounded-full bg-brand-red"></span>
+                    <span>{text}</span>
+                  </div>
+                ))}
+              </motion.div>
+            );
+          })()}
         </div>
       </div>
 

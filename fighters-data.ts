@@ -16,67 +16,47 @@ export interface Fighter {
 
 export const FIGHTERS_DATA: Fighter[] = [
   {
-    name: "Anis Afsi",
+    name: "Anis Hafsi",
     nickname: "Le Titan",
     weight: "-84kg",
-    belt: "Ceinture Marron Grappling",
+    belt: "Blue Belt",
     record: { wins: 15, losses: 3, draws: 1 },
     achievements: [
-      "Prix Ville de Saint-Ouen 2015",
-      "Médaille d'Or Paris Open 2016",
-      "Champion Régional 2017",
-      "Top 3 Championnat de France 2018"
+      "Débute le Grappling en septembre 2022",
+      "Sélection EDF Junior en juin 2023",
+      "Championnat du Monde (Pologne) en août 2023",
+      "Champion de France Novice FFL le 16 décembre 2023",
+      "Sélection EDF Seniors en janvier 2024",
+      "Championnat d’Europe (Azerbaïdjan) en mai 2024",
+      "Vice-champion de France Confirmé FFL en juin 2024",
+      "Champion de l’Open de Paris IBJJF en novembre 2025"
     ],
     image: "/images/competitor/get.jpeg",
     specialty: "Contrôle au sol • Soumissions",
     quote: "La victoire appartient à celui qui refuse d'abandonner."
   },
   {
-    name: "Younes Soliman",
-    nickname: "La Machine",
+    name: "Mathis Londner",
+    nickname: "",
     weight: "-77kg",
-    belt: "Ceinture Violette Grappling",
-    record: { wins: 12, losses: 4, draws: 0 },
+    belt: "Blue Belt",
+    record: { wins: 6, losses: 0, draws: 0 },
     achievements: [
-      "Médaille de Bronze Spirit Challenge 2017",
-      "Finaliste Open de Paris 2018",
-      "Champion IDF 2019",
-      "Médaille d'Argent Gino Gi Challenge 2020"
+      "Vice champion de France U20"
     ],
-    image: "/images/competitor/get (1).jpeg",
+    image: "/images/competitor/mathis.jpeg",
     specialty: "Explosivité • Takedowns",
-    quote: "Chaque combat est une opportunité de progresser."
+    quote: "Toujours viser plus haut."
   },
   {
-    name: "Samir Benali",
-    nickname: "L'Éclair",
-    weight: "-70kg",
-    belt: "Ceinture Violette JJB",
-    record: { wins: 18, losses: 2, draws: 1 },
-    achievements: [
-      "Médaille d'Or Paris Open 2019",
-      "Champion de France Juniors 2018",
-      "Top 5 Championnat Europe 2020",
-      "Médaille d'Or Gino Gi Challenge 2021"
-    ],
-    image: "/images/competitor/get.jpg",
-    specialty: "Vitesse • Transitions",
-    quote: "La technique bat toujours la force brute."
-  },
-  {
-    name: "Malik Rashid",
-    nickname: "Le Prédateur",
-    weight: "-92kg",
-    belt: "Ceinture Noire Grappling",
-    record: { wins: 22, losses: 5, draws: 2 },
-    achievements: [
-      "Vice-Champion de France 2019",
-      "Médaille d'Or Open International 2020",
-      "Champion IDF 3 années consécutives",
-      "Sélectionné Équipe de France 2021"
-    ],
-    image: "/images/competitor/Première compétition de la saison, première compétition en violette… et première médaille. Je su.jpg",
-    specialty: "Pression • Finitions",
-    quote: "Dominer ou être dominé. Il n'y a pas de milieu."
+    name: "Marin Postolachi",
+    nickname: "",
+    weight: "-77kg",
+    belt: "Purple Belt",
+    record: { wins: 0, losses: 0, draws: 0 },
+    achievements: [],
+    image: "/images/competitor/Marin.jpg",
+    specialty: "Grappling complet",
+    quote: "Toujours avancer, jamais reculer."
   }
 ];

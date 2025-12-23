@@ -21,7 +21,6 @@ export const NAV_ITEMS: NavItem[] = [
     children: [
       { label: "L'Équipe", path: '/team' },
       { label: "Combattants d'Élite", path: '/fighters' },
-      { label: "Résultats Sportifs", path: '/results' },
       { label: "Nos Partenaires", path: '/partners' },
       { label: "Liens Utiles", path: '/links' },
     ]

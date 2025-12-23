@@ -8,7 +8,6 @@ import Contact from './pages/Contact';
 import Pricing from './pages/Pricing';
 import Disciplines from './pages/Disciplines';
 import Team from './pages/Team';
-import Results from './pages/Results';
 import Shop from './pages/Shop';
 import Partners from './pages/Partners';
 import Photos from './pages/Photos';
@@ -42,7 +41,6 @@ const App: React.FC = () => {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/team" element={<Team />} />
-            <Route path="/results" element={<Results />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/photos" element={<Photos />} />

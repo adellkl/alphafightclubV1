@@ -76,191 +76,133 @@ const Schedule: React.FC = () => {
     <main className="pt-32">
       <SEO {...seoConfig.schedule} />
 
-      {/* Header */}
-      <div className="container mx-auto px-4 sm:px-6 mb-8 md:mb-12">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-black uppercase mb-3 md:mb-4">
-          Planning Hebdomadaire
-        </h1>
-        <div className="w-20 h-1 bg-brand-red mb-4 md:mb-6"></div>
-        <p className="text-gray-600 text-base md:text-lg max-w-3xl">
-          Centre Sportif Pablo Neruda - Saint-Ouen (93)
-        </p>
+      {/* En-tête */}
+      <div className="container mx-auto px-4 sm:px-6 mb-10">
+        <div className="flex flex-col gap-3">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-black uppercase">
+            Planning Hebdomadaire
+          </h1>
+          <div className="w-20 h-1 bg-brand-red"></div>
+          <p className="text-gray-600 text-base md:text-lg max-w-3xl">
+            Centre Sportif Pablo Neruda — 17 Rue Salvador Allende, Saint-Ouen (93).
+          </p>
+        </div>
       </div>
 
-      {/* Calendrier Moderne */}
-      <Section className="py-8 md:py-16">
-        <div className="max-w-7xl mx-auto">
-          {/* En-tête du calendrier */}
-          <div className="mb-6 md:mb-8 text-center">
-            <div className="inline-flex items-center gap-2 md:gap-3 bg-black text-white px-4 md:px-6 py-2 md:py-3 rounded-sm mb-4">
-              <Calendar className="text-brand-red" size={20} />
-              <span className="font-display font-bold text-base md:text-xl uppercase">Semaine Type</span>
-            </div>
+      {/* Semaine type */}
+      <Section className="py-10">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <div className="flex items-center gap-2 text-sm font-semibold uppercase text-gray-500">
+            <Calendar size={18} className="text-brand-red" />
+            <span>Semaine type</span>
           </div>
-
-          {/* Grille Calendrier */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-2 md:gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {weekSchedule.map((day, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className={`relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 ${
-                  day.active 
-                    ? day.special 
-                      ? 'bg-gradient-to-br from-yellow-400 to-yellow-600' 
-                      : 'bg-gradient-to-br from-brand-red to-red-700'
-                    : 'bg-gradient-to-br from-gray-100 to-gray-200'
-                }`}
+                className="border border-gray-200 rounded-md bg-white shadow-sm hover:shadow-md transition-all"
               >
-                {/* Header Jour avec numéro */}
-                <div className={`p-2 md:p-4 text-center ${
-                  day.active 
-                    ? 'bg-black/20 text-white' 
-                    : 'bg-white/50 text-gray-600'
-                }`}>
-                  <div className="font-display font-bold text-lg md:text-2xl mb-1">
-                    {day.short}
+                <div className="px-4 py-3 flex items-center justify-between border-b border-gray-100">
+                  <div>
+                    <div className="text-xs uppercase text-gray-500 tracking-wide">{day.short}</div>
+                    <div className="text-base font-semibold text-black">{day.day}</div>
                   </div>
-                  <div className="text-[10px] md:text-xs opacity-80">{day.day}</div>
-                </div>
-
-                {/* Contenu */}
-                <div className={`p-3 md:p-5 min-h-[200px] md:min-h-[280px] flex flex-col ${
-                  day.active ? 'text-white' : 'text-gray-500'
-                }`}>
                   {day.active ? (
-                    <>
-                      {/* Badge Horaire */}
-                      <div className="mb-2 md:mb-4">
-                        <div className="inline-flex items-center gap-1 md:gap-2 bg-white/20 backdrop-blur-sm px-2 md:px-3 py-1 md:py-2 rounded-full">
-                          <Clock size={14} />
-                          <span className="font-bold text-xs md:text-sm">{day.time}</span>
-                        </div>
-                      </div>
-
-                      {/* Titre */}
-                      <h3 className="font-display font-bold text-sm md:text-lg uppercase mb-2 md:mb-3 leading-tight">
-                        {day.title}
-                      </h3>
-
-                      {/* Badge Niveau */}
-                      <div className="mb-2 md:mb-4">
-                        <span className="inline-block bg-white/30 backdrop-blur-sm px-2 md:px-3 py-1 text-[10px] md:text-xs font-semibold rounded-full">
-                          {day.level}
-                        </span>
-                      </div>
-
-                      {/* Description */}
-                      <p className="text-[10px] md:text-sm mb-4 md:mb-6 leading-relaxed opacity-90">
-                        {day.description}
-                      </p>
-
-                      {/* Infos en bas */}
-                      <div className="mt-auto pt-2 md:pt-4 border-t border-white/20">
-                        <div className="flex items-center gap-1 md:gap-2 text-xs md:text-sm">
-                          <Shield size={14} className="shrink-0" />
-                          <span className="truncate text-[10px] md:text-xs">{day.coach}</span>
-                        </div>
-                      </div>
-                    </>
+                    <span className={`text-xs font-bold px-3 py-1 rounded-full ${day.special ? 'bg-amber-100 text-amber-700' : 'bg-red-100 text-brand-red'}`}>
+                      {day.special ? 'Compétition' : 'Cours'}
+                    </span>
                   ) : (
-                    // Jour de repos
-                    <div className="flex flex-col items-center justify-center h-full">
-                      <Coffee size={32} className="md:size-48 mb-2 md:mb-4 opacity-50" />
-                      <p className="font-display font-bold text-sm md:text-lg uppercase">{day.label}</p>
-                    </div>
+                    <span className="text-xs font-bold px-3 py-1 rounded-full bg-gray-100 text-gray-500">Repos</span>
                   )}
                 </div>
 
-                {/* Indicateur visuel en bas */}
-                {day.active && (
-                  <div className={`absolute bottom-0 left-0 right-0 h-1 ${
-                    day.special ? 'bg-yellow-300' : 'bg-red-400'
-                  }`}></div>
-                )}
+                <div className="p-4 space-y-3 min-h-[170px] flex flex-col">
+                  {day.active ? (
+                    <>
+                      <div className="flex items-center gap-2 text-sm font-semibold text-black">
+                        <Clock size={16} className="text-brand-red" />
+                        <span>{day.time}</span>
+                      </div>
+                      <div>
+                        <h3 className="text-base font-display font-bold text-black leading-snug">{day.title}</h3>
+                        <p className="text-sm text-gray-500 mt-1">{day.level}</p>
+                      </div>
+                      <p className="text-sm text-gray-600 leading-relaxed">{day.description}</p>
+                      <div className="mt-auto pt-3 border-t border-gray-100 text-sm text-gray-700">
+                        {day.coach}
+                      </div>
+                    </>
+                  ) : (
+                    <div className="text-sm text-gray-500">Repos / récupération</div>
+                  )}
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </Section>
 
-      {/* Informations Pratiques */}
-      <Section className="py-8 md:py-16">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            {/* Infos Générales */}
-            <div className="bg-gradient-to-br from-gray-50 to-white p-4 md:p-6 border-2 border-gray-200 shadow-lg">
-              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                <AlertCircle className="text-brand-red" size={20} />
-                <h3 className="font-display font-bold text-base md:text-lg uppercase">À Savoir</h3>
-              </div>
-              <ul className="space-y-2 text-xs md:text-sm text-gray-700">
-                <li className="flex gap-2">
-                  <span className="text-brand-red">•</span>
-                  Arriver <strong>15 min avant</strong>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-brand-red">•</span>
-                  Rashguard + short obligatoires
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-brand-red">•</span>
-                  Pas de fermetures éclair
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-brand-red">•</span>
-                  Cours d'essai gratuit
-                </li>
-              </ul>
+      {/* Infos pratiques */}
+      <Section gray className="py-10">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="border border-gray-200 bg-white rounded-md p-5 shadow-sm">
+            <div className="flex items-center gap-2 mb-3">
+              <AlertCircle className="text-brand-red" size={18} />
+              <h3 className="font-display font-bold uppercase text-sm text-black">À savoir</h3>
             </div>
+            <ul className="space-y-2 text-sm text-gray-700">
+              <li>Arriver 15 minutes avant le cours.</li>
+              <li>Rashguard + short obligatoires, pas de fermetures éclair.</li>
+              <li>Cours d'essai gratuit.</li>
+            </ul>
+          </div>
 
-            {/* Localisation */}
-            <div className="bg-black text-white p-4 md:p-6 shadow-lg">
-              <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                <MapPin className="text-brand-red" size={20} />
-                <h3 className="font-display font-bold text-base md:text-lg uppercase">Lieu</h3>
-              </div>
-              <p className="text-xs md:text-sm mb-2 md:mb-3">
-                <strong>Centre Pablo Neruda</strong><br/>
-                17 Rue Salvador Allende<br/>
-                93400 Saint-Ouen
-              </p>
-              <p className="text-xs md:text-sm text-gray-300 mb-3 md:mb-4">
-                Métro 13 - Mairie de Saint-Ouen<br/>
-                5 min à pied
-              </p>
-              <a
-                href="https://www.google.com/maps/place/Centre+Sportif+Pablo+Neruda"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 bg-brand-red hover:bg-white hover:text-black transition-colors px-3 md:px-4 py-1.5 md:py-2 text-[10px] md:text-xs font-bold uppercase"
-              >
-                <MapPin size={12} /> Carte
-              </a>
+          <div className="border border-gray-200 bg-white rounded-md p-5 shadow-sm">
+            <div className="flex items-center gap-2 mb-3">
+              <MapPin className="text-brand-red" size={18} />
+              <h3 className="font-display font-bold uppercase text-sm text-black">Lieu</h3>
             </div>
+            <p className="text-sm text-gray-700 leading-relaxed mb-3">
+              Centre Sportif Pablo Neruda<br />
+              17 Rue Salvador Allende<br />
+              93400 Saint-Ouen<br />
+              Métro 13 — Mairie de Saint-Ouen (5 min à pied)
+            </p>
+            <a
+              href="https://www.google.com/maps/place/Centre+Sportif+Pablo+Neruda"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-brand-red px-3 py-2 rounded-sm hover:bg-black transition-colors"
+            >
+              <MapPin size={14} /> Voir la carte
+            </a>
+          </div>
 
-            {/* CTA */}
-            <div className="bg-brand-red text-white p-4 md:p-6 shadow-lg flex flex-col justify-between">
-              <div>
-                <Trophy className="mb-3 md:mb-4" size={24} />
-                <h3 className="font-display font-bold text-lg md:text-xl uppercase mb-2 md:mb-3">
-                  Prêt à Commencer ?
-                </h3>
-                <p className="text-xs md:text-sm mb-3 md:mb-4 text-white/90">
-                  Essai gratuit sans engagement pour découvrir le Grappling
-                </p>
+          <div className="border border-gray-200 bg-black text-white rounded-md p-6 md:p-7 shadow-md flex flex-col justify-between min-h-[220px]">
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-sm">
+                <Trophy className="text-white" size={20} />
+                <span className="text-xs font-semibold uppercase tracking-wide text-white/90">Essai Gratuit</span>
               </div>
-              <a
-                href={REGISTRATION_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-center bg-black hover:bg-white hover:text-black transition-colors px-4 md:px-6 py-2 md:py-3 font-bold uppercase text-xs md:text-sm"
-              >
-                S'inscrire
-              </a>
+              <h3 className="font-display font-bold uppercase text-xl md:text-2xl text-white leading-tight">
+                Prêt à commencer ?
+              </h3>
+              <p className="text-sm md:text-base text-white/85 leading-relaxed">
+                Essai gratuit sans engagement pour découvrir le Grappling.
+              </p>
             </div>
+            <a
+              href={REGISTRATION_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center justify-center bg-white text-black px-5 py-3 font-bold uppercase text-sm rounded-sm hover:bg-brand-red hover:text-white transition-colors"
+            >
+              S'inscrire
+            </a>
           </div>
         </div>
       </Section>

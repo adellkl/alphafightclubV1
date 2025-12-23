@@ -31,7 +31,7 @@ const Partners: React.FC = () => {
         
         <div className="mt-20 bg-brand-black text-white p-12 text-center max-w-4xl mx-auto relative overflow-hidden rounded-sm">
             <div className="absolute top-0 left-0 w-2 h-full bg-brand-red"></div>
-            <h3 className="text-3xl font-display font-bold uppercase mb-4">Devenir Partenaire</h3>
+            <h3 className="text-3xl font-display font-bold uppercase mb-4 text-white">Devenir Partenaire</h3>
             <p className="text-gray-400 mb-8 max-w-xl mx-auto">
                 Vous souhaitez associer l'image de votre entreprise aux valeurs de combat, de respect et de dépassement de soi ?
             </p>
