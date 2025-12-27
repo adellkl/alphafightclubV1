@@ -6,33 +6,29 @@ import { Shield, Eye, Lock, Database, Users, FileText } from 'lucide-react';
 const Privacy: React.FC = () => {
   return (
     <main className="pt-32">
-      <SEO
-        title="Politique de Confidentialité | Alpha Fight Club Saint-Ouen"
-        description="Politique de confidentialité du site Alpha Fight Club. Protection des données personnelles, RGPD, cookies et vos droits."
-        keywords="politique confidentialité, rgpd, données personnelles, protection données, alpha fight club"
-      />
+      <SEO {...seoConfig.privacy} />
 
       {/* Header */}
-      <div className="container mx-auto px-6 mb-12">
-        <h1 className="text-5xl font-display font-bold text-black uppercase mb-4 text-left">
+      <div className="container mx-auto px-4 sm:px-6 mb-8 md:mb-12">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-black uppercase mb-3 md:mb-4 text-left">
           Politique de Confidentialité
         </h1>
-        <div className="w-20 h-1 bg-brand-red mb-6"></div>
-        <p className="text-gray-500 text-lg max-w-2xl text-left">
+        <div className="w-20 h-1 bg-brand-red mb-4 md:mb-6"></div>
+        <p className="text-gray-500 text-base md:text-lg max-w-2xl text-left">
           Protection de vos données personnelles et respect de votre vie privée
         </p>
       </div>
 
-      <Section gray className="pt-10">
-        <div className="max-w-4xl mx-auto space-y-12">
+      <Section gray className="pt-6 md:pt-10">
+        <div className="max-w-4xl mx-auto space-y-8 sm:space-y-10 md:space-y-12 px-4 sm:px-6">
 
           {/* Introduction */}
-          <div className="bg-brand-red text-white p-8 rounded-sm">
-            <div className="flex items-center gap-3 mb-6">
-              <Shield size={32} />
-              <h2 className="text-3xl font-display font-bold uppercase">Notre Engagement</h2>
+          <div className="bg-brand-red text-white p-5 sm:p-6 md:p-8 rounded-sm">
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <Shield size={24} className="sm:w-8 sm:h-8" />
+              <h2 className="text-2xl sm:text-3xl font-display font-bold uppercase">Notre Engagement</h2>
             </div>
-            <p className="leading-relaxed">
+            <p className="leading-relaxed text-sm sm:text-base">
               Alpha Fight Club s'engage à protéger la confidentialité de vos données personnelles.
               Cette politique de confidentialité vous informe sur la manière dont nous collectons, utilisons et protégeons vos informations
               conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés.
@@ -40,12 +36,12 @@ const Privacy: React.FC = () => {
           </div>
 
           {/* Responsable du traitement */}
-          <div className="bg-white p-8 rounded-sm shadow-sm border-l-4 border-gray-300">
-            <div className="flex items-center gap-3 mb-6">
-              <Users className="text-gray-600" size={32} />
-              <h2 className="text-3xl font-display font-bold text-black uppercase">Responsable du traitement</h2>
+          <div className="bg-white p-5 sm:p-6 md:p-8 rounded-sm shadow-sm border-l-4 border-gray-300">
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <Users className="text-gray-600 w-6 h-6 sm:w-8 sm:h-8" size={32} />
+              <h2 className="text-2xl sm:text-3xl font-display font-bold text-black uppercase">Responsable du traitement</h2>
             </div>
-            <div className="space-y-3 text-gray-700 leading-relaxed">
+            <div className="space-y-2 sm:space-y-3 text-gray-700 leading-relaxed text-sm sm:text-base">
               <p><strong className="text-black">Alpha Fight Club</strong><br/>
               Centre Sportif Pablo Neruda<br/>
               17 rue Salvador Allende<br/>
@@ -55,18 +51,18 @@ const Privacy: React.FC = () => {
           </div>
 
           {/* Données collectées */}
-          <div className="bg-white p-8 rounded-sm shadow-sm border-l-4 border-gray-300">
-            <div className="flex items-center gap-3 mb-6">
-              <Database className="text-gray-600" size={32} />
-              <h2 className="text-3xl font-display font-bold text-black uppercase">Données collectées</h2>
+          <div className="bg-white p-5 sm:p-6 md:p-8 rounded-sm shadow-sm border-l-4 border-gray-300">
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <Database className="text-gray-600 w-6 h-6 sm:w-8 sm:h-8" size={32} />
+              <h2 className="text-2xl sm:text-3xl font-display font-bold text-black uppercase">Données collectées</h2>
             </div>
-            <div className="space-y-4 text-gray-700 leading-relaxed">
+            <div className="space-y-3 sm:space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base">
               <p className="font-bold text-black">Nous collectons uniquement les données nécessaires :</p>
 
-              <div className="ml-4 space-y-3">
+              <div className="ml-2 sm:ml-4 space-y-3">
                 <div>
-                  <h3 className="font-bold text-black mb-2">📋 Lors de l'inscription au club :</h3>
-                  <ul className="list-disc ml-6 space-y-1">
+                  <h3 className="font-bold text-black mb-2 text-sm sm:text-base">📋 Lors de l'inscription au club :</h3>
+                  <ul className="list-disc ml-4 sm:ml-6 space-y-1 text-sm sm:text-base">
                     <li>Nom et prénom</li>
                     <li>Date de naissance</li>
                     <li>Adresse postale</li>
@@ -78,8 +74,8 @@ const Privacy: React.FC = () => {
                 </div>
 
                 <div>
-                  <h3 className="font-bold text-black mb-2">🌐 Navigation sur le site :</h3>
-                  <ul className="list-disc ml-6 space-y-1">
+                  <h3 className="font-bold text-black mb-2 text-sm sm:text-base">🌐 Navigation sur le site :</h3>
+                  <ul className="list-disc ml-4 sm:ml-6 space-y-1 text-sm sm:text-base">
                     <li>Données de session (cookies techniques)</li>
                     <li>Adresse IP (logs serveur)</li>
                     <li>Pages consultées</li>
@@ -141,30 +137,30 @@ const Privacy: React.FC = () => {
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p className="font-bold text-black">Conformément au RGPD, vous disposez des droits suivants :</p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                <div className="bg-gray-50 p-4 rounded">
-                  <h3 className="font-bold text-black mb-2">✅ Droit d'accès</h3>
-                  <p className="text-sm">Accéder à vos données personnelles</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4">
+                <div className="bg-gray-50 p-3 sm:p-4 rounded">
+                  <h3 className="font-bold text-black mb-1 sm:mb-2 text-sm sm:text-base">✅ Droit d'accès</h3>
+                  <p className="text-xs sm:text-sm">Accéder à vos données personnelles</p>
                 </div>
-                <div className="bg-gray-50 p-4 rounded">
-                  <h3 className="font-bold text-black mb-2">✏️ Droit de rectification</h3>
-                  <p className="text-sm">Corriger vos données inexactes</p>
+                <div className="bg-gray-50 p-3 sm:p-4 rounded">
+                  <h3 className="font-bold text-black mb-1 sm:mb-2 text-sm sm:text-base">✏️ Droit de rectification</h3>
+                  <p className="text-xs sm:text-sm">Corriger vos données inexactes</p>
                 </div>
-                <div className="bg-gray-50 p-4 rounded">
-                  <h3 className="font-bold text-black mb-2">🗑️ Droit à l'effacement</h3>
-                  <p className="text-sm">Supprimer vos données</p>
+                <div className="bg-gray-50 p-3 sm:p-4 rounded">
+                  <h3 className="font-bold text-black mb-1 sm:mb-2 text-sm sm:text-base">🗑️ Droit à l'effacement</h3>
+                  <p className="text-xs sm:text-sm">Supprimer vos données</p>
                 </div>
-                <div className="bg-gray-50 p-4 rounded">
-                  <h3 className="font-bold text-black mb-2">🚫 Droit d'opposition</h3>
-                  <p className="text-sm">Vous opposer au traitement</p>
+                <div className="bg-gray-50 p-3 sm:p-4 rounded">
+                  <h3 className="font-bold text-black mb-1 sm:mb-2 text-sm sm:text-base">🚫 Droit d'opposition</h3>
+                  <p className="text-xs sm:text-sm">Vous opposer au traitement</p>
                 </div>
-                <div className="bg-gray-50 p-4 rounded">
-                  <h3 className="font-bold text-black mb-2">📦 Droit à la portabilité</h3>
-                  <p className="text-sm">Récupérer vos données</p>
+                <div className="bg-gray-50 p-3 sm:p-4 rounded">
+                  <h3 className="font-bold text-black mb-1 sm:mb-2 text-sm sm:text-base">📦 Droit à la portabilité</h3>
+                  <p className="text-xs sm:text-sm">Récupérer vos données</p>
                 </div>
-                <div className="bg-gray-50 p-4 rounded">
-                  <h3 className="font-bold text-black mb-2">⏸️ Droit à la limitation</h3>
-                  <p className="text-sm">Limiter le traitement</p>
+                <div className="bg-gray-50 p-3 sm:p-4 rounded">
+                  <h3 className="font-bold text-black mb-1 sm:mb-2 text-sm sm:text-base">⏸️ Droit à la limitation</h3>
+                  <p className="text-xs sm:text-sm">Limiter le traitement</p>
                 </div>
               </div>
 

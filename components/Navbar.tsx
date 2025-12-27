@@ -87,55 +87,120 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden text-black"
+          className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center text-black focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          <motion.div
+            className="absolute"
+            animate={isOpen ? { rotate: 180 } : { rotate: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {isOpen ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.2 }}
+              >
+                <X size={28} className="text-brand-red" />
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Menu size={28} />
+              </motion.div>
+            )}
+          </motion.div>
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: '100vh' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden absolute top-[69px] left-0 w-full bg-white flex flex-col pt-4 overflow-y-auto h-[calc(100vh-69px)] border-t border-gray-100 pb-20"
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{
+              type: 'spring',
+              damping: 25,
+              stiffness: 200,
+              duration: 0.4
+            }}
+            className="lg:hidden fixed top-[69px] right-0 w-full sm:w-96 h-[calc(100vh-69px)] bg-white shadow-2xl z-50 overflow-y-auto"
           >
-            {NAV_ITEMS.map((item, idx) => (
-              <div key={idx} className="border-b border-gray-50 last:border-0">
-                {item.children ? (
-                  <div className="px-6 py-4">
-                    <div className="text-lg font-display font-bold uppercase text-black mb-3">{item.label}</div>
-                    <div className="flex flex-col gap-3 pl-4 border-l-2 border-brand-red/20">
-                      {item.children.map((subItem, subIdx) => (
-                        <NavLink
-                          key={subIdx}
-                          to={subItem.path}
-                          onClick={() => setIsOpen(false)}
-                          className="text-sm font-semibold text-gray-500 hover:text-brand-red uppercase tracking-wider"
-                        >
-                          {subItem.label}
-                        </NavLink>
-                      ))}
+            <div className="p-6 space-y-2">
+              {NAV_ITEMS.map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05, duration: 0.3 }}
+                  className="border-b border-gray-100 last:border-0 pb-2 last:pb-0"
+                >
+                  {item.children ? (
+                    <div className="py-3">
+                      <div className="text-lg font-display font-bold uppercase text-black mb-3 flex items-center gap-2">
+                        <span className="w-1 h-6 bg-brand-red"></span>
+                        {item.label}
+                      </div>
+                      <div className="flex flex-col gap-2 pl-5 ml-1 border-l-2 border-brand-red/30">
+                        {item.children.map((subItem, subIdx) => (
+                          <motion.div
+                            key={subIdx}
+                            initial={{ opacity: 0, x: 10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: (idx * 0.05) + (subIdx * 0.03), duration: 0.2 }}
+                          >
+                            <NavLink
+                              to={subItem.path}
+                              onClick={() => setIsOpen(false)}
+                              className="block py-2.5 px-3 text-sm font-semibold text-gray-600 hover:text-brand-red hover:bg-gray-50 rounded-sm uppercase tracking-wider transition-all duration-200 group"
+                            >
+                              <span className="flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 bg-brand-red/0 group-hover:bg-brand-red rounded-full transition-all duration-200"></span>
+                                {subItem.label}
+                              </span>
+                            </NavLink>
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ) : (
-                  <NavLink
-                    to={item.path}
-                    onClick={() => setIsOpen(false)}
-                    className="block px-6 py-4 text-lg font-display font-bold uppercase text-black hover:text-brand-red hover:bg-gray-50 transition-colors"
-                  >
-                    {item.label}
-                  </NavLink>
-                )}
-              </div>
-            ))}
-            <div className="p-6">
-              <NavLink to="/contact" onClick={() => setIsOpen(false)} className="block w-full text-center bg-brand-red text-white px-8 py-4 font-display font-bold uppercase italic skew-x-[-10deg]">
-                <span className="block skew-x-[10deg]">Essai Gratuit</span>
-              </NavLink>
+                  ) : (
+                    <NavLink
+                      to={item.path}
+                      onClick={() => setIsOpen(false)}
+                      className="block py-4 px-3 text-lg font-display font-bold uppercase text-black hover:text-brand-red hover:bg-gray-50 rounded-sm transition-all duration-200 group"
+                    >
+                      <span className="flex items-center gap-3">
+                        <span className="w-1 h-6 bg-brand-red/0 group-hover:bg-brand-red transition-all duration-200"></span>
+                        {item.label}
+                      </span>
+                    </NavLink>
+                  )}
+                </motion.div>
+              ))}
+
+              {/* CTA Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: NAV_ITEMS.length * 0.05 + 0.1, duration: 0.3 }}
+                className="pt-6 mt-4 border-t-2 border-gray-200"
+              >
+                <NavLink
+                  to="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="block w-full text-center bg-brand-red text-white px-8 py-4 font-display font-bold uppercase italic skew-x-[-10deg] hover:bg-black transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  <span className="block skew-x-[10deg]">Essai Gratuit</span>
+                </NavLink>
+              </motion.div>
             </div>
           </motion.div>
         )}

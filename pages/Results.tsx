@@ -479,39 +479,39 @@ const Results: React.FC = () => {
     <main className="pt-32">
       <SEO {...seoConfig.results} />
       {/* Header */}
-      <div className="container mx-auto px-6 mb-16">
-        <h1 className="text-5xl lg:text-7xl font-display font-bold text-black uppercase mb-4 text-left">
+      <div className="container mx-auto px-4 sm:px-6 mb-10 sm:mb-12 md:mb-16">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-black uppercase mb-3 sm:mb-4 text-left">
           Palmarès
         </h1>
-        <div className="w-24 h-2 bg-brand-red mb-8"></div>
-        <p className="text-gray-500 text-lg max-w-2xl text-left leading-relaxed">
+        <div className="w-20 sm:w-24 h-1 sm:h-2 bg-brand-red mb-4 sm:mb-6 md:mb-8"></div>
+        <p className="text-gray-500 text-base sm:text-lg max-w-2xl text-left leading-relaxed">
            L'histoire de l'Alpha Fight Club s'écrit sur les tatamis. Depuis 2003, nos compétiteurs défendent nos couleurs au niveau national et international.
         </p>
       </div>
 
       {/* TIMELINE SECTION */}
-      <Section className="py-10 bg-white">
-        <div ref={timelineRef} className="max-w-4xl mx-auto px-4 md:px-0 relative">
+      <Section className="py-6 sm:py-8 md:py-10 bg-white">
+        <div ref={timelineRef} className="max-w-4xl mx-auto px-4 sm:px-6 md:px-0 relative">
           
           {/* Ligne verticale de timeline (Arrière-plan gris) */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gray-200 transform md:-translate-x-1/2 hidden md:block"></div>
+          <div className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-px bg-gray-200 transform md:-translate-x-1/2 hidden md:block"></div>
           
           {/* Ligne verticale de timeline (Premier plan rouge animé) */}
           <motion.div 
             style={{ scaleY: scaleY, originY: 0 }}
-            className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[3px] bg-brand-red transform md:-translate-x-1/2 hidden md:block z-0"
+            className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-[3px] bg-brand-red transform md:-translate-x-1/2 hidden md:block z-0"
           ></motion.div>
 
           {HISTORY_DATA.map((yearGroup, yIdx) => (
-            <div key={yIdx} className="mb-20 relative">
+            <div key={yIdx} className="mb-12 sm:mb-16 md:mb-20 relative">
               
               {/* Year Marker */}
-              <div className="flex md:justify-center items-center mb-10 sticky top-24 z-20">
+              <div className="flex md:justify-center items-center mb-6 sm:mb-8 md:mb-10 sticky top-20 sm:top-24 z-20">
                  <motion.div 
                     initial={{ scale: 0, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
-                    className="bg-black text-white font-display font-bold text-3xl py-2 px-6 rounded-sm shadow-xl border-4 border-white"
+                    className="bg-black text-white font-display font-bold text-xl sm:text-2xl md:text-3xl py-1.5 sm:py-2 px-4 sm:px-6 rounded-sm shadow-xl border-2 sm:border-4 border-white"
                  >
                     {yearGroup.year}
                  </motion.div>
@@ -528,7 +528,7 @@ const Results: React.FC = () => {
                           <div className="hidden md:block w-1/2"></div>
                           
                           {/* Dot on Timeline */}
-                          <div className="absolute left-6 md:left-1/2 top-6 w-4 h-4 bg-brand-red rounded-full border-4 border-white shadow-sm transform md:-translate-x-1/2 z-10 hidden md:block"></div>
+                          <div className="absolute left-4 sm:left-6 md:left-1/2 top-4 sm:top-6 w-3 h-3 sm:w-4 sm:h-4 bg-brand-red rounded-full border-2 sm:border-4 border-white shadow-sm transform md:-translate-x-1/2 z-10 hidden md:block"></div>
 
                           {/* Card Content avec Animation d'apparition latérale */}
                           <motion.div 
@@ -536,30 +536,30 @@ const Results: React.FC = () => {
                              whileInView={{ opacity: 1, x: 0 }}
                              viewport={{ once: true, margin: "-10%" }}
                              transition={{ duration: 0.6, ease: "easeOut" }}
-                             className="w-full md:w-1/2 pl-12 md:pl-0"
+                             className="w-full md:w-1/2 pl-8 sm:pl-12 md:pl-0"
                           >
-                             <div className={`bg-gray-50 p-6 md:p-8 rounded-sm border-l-4 border-brand-red hover:shadow-lg transition-shadow relative group ${!isLeft ? 'md:mr-8 md:text-right md:border-l-0 md:border-r-4' : 'md:ml-8'}`}>
+                             <div className={`bg-gray-50 p-4 sm:p-6 md:p-8 rounded-sm border-l-4 border-brand-red hover:shadow-lg transition-shadow relative group ${!isLeft ? 'md:mr-8 md:text-right md:border-l-0 md:border-r-4' : 'md:ml-8'}`}>
                                 
                                 {/* Date Badge avec Typewriter */}
-                                <div className={`inline-flex items-center gap-2 text-brand-red font-bold uppercase text-xs tracking-widest mb-3 ${!isLeft ? 'md:flex-row-reverse' : ''}`}>
-                                    <Calendar size={14} />
+                                <div className={`inline-flex items-center gap-2 text-brand-red font-bold uppercase text-[10px] sm:text-xs tracking-widest mb-2 sm:mb-3 ${!isLeft ? 'md:flex-row-reverse' : ''}`}>
+                                    <Calendar size={12} className="sm:w-3.5 sm:h-3.5" />
                                     <DateTypewriter text={event.date} />
                                 </div>
 
-                                <h3 className="text-2xl font-display font-bold text-black uppercase mb-4 leading-none group-hover:text-brand-red transition-colors">
+                                <h3 className="text-lg sm:text-xl md:text-2xl font-display font-bold text-black uppercase mb-3 sm:mb-4 leading-none group-hover:text-brand-red transition-colors">
                                     {event.name}
                                 </h3>
 
-                                <ul className="space-y-3">
+                                <ul className="space-y-2 sm:space-y-3">
                                     {event.results.map((res, rIdx) => (
-                                        <li key={rIdx} className={`text-gray-600 text-sm leading-relaxed flex items-start gap-2 ${!isLeft ? 'md:justify-end' : ''}`}>
+                                        <li key={rIdx} className={`text-gray-600 text-xs sm:text-sm leading-relaxed flex items-start gap-2 ${!isLeft ? 'md:justify-end' : ''}`}>
                                             {/* Icon logic simple based on keywords */}
                                             {res.toLowerCase().includes('or') || res.toLowerCase().includes('1er') || res.toLowerCase().includes('victoire') ? (
-                                                <Trophy size={16} className="text-yellow-500 shrink-0 mt-0.5" />
+                                                <Trophy size={14} className="sm:w-4 sm:h-4 text-yellow-500 shrink-0 mt-0.5" />
                                             ) : res.toLowerCase().includes('argent') || res.toLowerCase().includes('2e') ? (
-                                                <Medal size={16} className="text-gray-400 shrink-0 mt-0.5" />
+                                                <Medal size={14} className="sm:w-4 sm:h-4 text-gray-400 shrink-0 mt-0.5" />
                                             ) : (
-                                                <Medal size={16} className="text-orange-400 shrink-0 mt-0.5" />
+                                                <Medal size={14} className="sm:w-4 sm:h-4 text-orange-400 shrink-0 mt-0.5" />
                                             )}
                                             <span>{res}</span>
                                         </li>
@@ -579,20 +579,20 @@ const Results: React.FC = () => {
       </Section>
 
       {/* GALLERY SECTION */}
-      <Section gray className="py-20">
-         <div className="container mx-auto px-0 md:px-6">
-            <div className="mb-12 px-6 md:px-0">
-                <h2 className="text-4xl font-display font-bold text-black uppercase mb-4 flex items-center gap-3">
-                    <ImageIcon className="text-brand-red" size={32} />
+      <Section gray className="py-12 sm:py-16 md:py-20">
+         <div className="container mx-auto px-4 sm:px-6">
+            <div className="mb-8 sm:mb-10 md:mb-12">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-black uppercase mb-3 sm:mb-4 flex items-center gap-2 sm:gap-3">
+                    <ImageIcon className="text-brand-red w-6 h-6 sm:w-8 sm:h-8" size={32} />
                     Nos Compétiteurs d'Élite
                 </h2>
-                <div className="w-20 h-1 bg-brand-red mb-6"></div>
-                <p className="text-gray-500 text-lg">
+                <div className="w-20 h-1 bg-brand-red mb-4 sm:mb-6"></div>
+                <p className="text-gray-500 text-base sm:text-lg">
                   Galerie des athlètes qui ont marqué l'histoire du club.
                 </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
                 {imageIndexes.map((index) => (
                    <GalleryItem key={index} index={index} />
                 ))}

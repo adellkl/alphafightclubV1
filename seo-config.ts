@@ -406,7 +406,13 @@ export const seoConfig: { [key: string]: SEOConfig } = {
     canonicalUrl: `${baseUrl}/#/partners`,
     ogImage: defaultOgImage,
     ogType: 'website',
-    twitterCard: 'summary'
+    twitterCard: 'summary',
+    jsonLd: [
+      createBreadcrumb([
+        { name: 'Accueil', url: baseUrl },
+        { name: 'Partenaires', url: `${baseUrl}/#/partners` }
+      ])
+    ]
   },
 
   photos: {
@@ -416,7 +422,19 @@ export const seoConfig: { [key: string]: SEOConfig } = {
     canonicalUrl: `${baseUrl}/#/photos`,
     ogImage: defaultOgImage,
     ogType: 'website',
-    twitterCard: 'summary_large_image'
+    twitterCard: 'summary_large_image',
+    jsonLd: [
+      createBreadcrumb([
+        { name: 'Accueil', url: baseUrl },
+        { name: 'Photos', url: `${baseUrl}/#/photos` }
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'ImageGallery',
+        name: 'Galerie Photos Alpha Fight Club',
+        description: 'Photos des entraînements et compétitions de Grappling, MMA et JJB'
+      }
+    ]
   },
 
   videos: {
@@ -426,7 +444,23 @@ export const seoConfig: { [key: string]: SEOConfig } = {
     canonicalUrl: `${baseUrl}/#/videos`,
     ogImage: defaultOgImage,
     ogType: 'website',
-    twitterCard: 'player'
+    twitterCard: 'player',
+    jsonLd: [
+      createBreadcrumb([
+        { name: 'Accueil', url: baseUrl },
+        { name: 'Vidéos', url: `${baseUrl}/#/videos` }
+      ]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'VideoObject',
+        name: 'Vidéos Alpha Fight Club',
+        description: 'Vidéos techniques et combats de Grappling, MMA et JJB',
+        publisher: {
+          '@type': 'Organization',
+          name: 'Alpha Fight Club'
+        }
+      }
+    ]
   },
 
   links: {
@@ -436,7 +470,13 @@ export const seoConfig: { [key: string]: SEOConfig } = {
     canonicalUrl: `${baseUrl}/#/links`,
     ogImage: defaultOgImage,
     ogType: 'website',
-    twitterCard: 'summary'
+    twitterCard: 'summary',
+    jsonLd: [
+      createBreadcrumb([
+        { name: 'Accueil', url: baseUrl },
+        { name: 'Liens Utiles', url: `${baseUrl}/#/links` }
+      ])
+    ]
   },
 
   fighters: {
@@ -473,7 +513,13 @@ export const seoConfig: { [key: string]: SEOConfig } = {
     canonicalUrl: `${baseUrl}/#/legal`,
     ogImage: defaultOgImage,
     ogType: 'website',
-    twitterCard: 'summary'
+    twitterCard: 'summary',
+    jsonLd: [
+      createBreadcrumb([
+        { name: 'Accueil', url: baseUrl },
+        { name: 'Mentions Légales', url: `${baseUrl}/#/legal` }
+      ])
+    ]
   },
 
   privacy: {
@@ -483,7 +529,29 @@ export const seoConfig: { [key: string]: SEOConfig } = {
     canonicalUrl: `${baseUrl}/#/privacy`,
     ogImage: defaultOgImage,
     ogType: 'website',
-    twitterCard: 'summary'
+    twitterCard: 'summary',
+    jsonLd: [
+      createBreadcrumb([
+        { name: 'Accueil', url: baseUrl },
+        { name: 'Politique de Confidentialité', url: `${baseUrl}/#/privacy` }
+      ])
+    ]
+  },
+  
+  clubLife: {
+    title: 'Vie du Club | Alpha Fight Club Saint-Ouen | Stages & Événements Grappling MMA 93',
+    description: 'Stages techniques, événements sociaux et vie du club Alpha Fight Club. Découvrez l\'esprit d\'équipe en dehors du tatami à Saint-Ouen (93).',
+    keywords: `${baseKeywords}, vie du club, stages grappling, événements mma, esprit d'équipe, club sportif saint-ouen, stages techniques grappling`,
+    canonicalUrl: `${baseUrl}/#/club-life`,
+    ogImage: defaultOgImage,
+    ogType: 'website',
+    twitterCard: 'summary',
+    jsonLd: [
+      createBreadcrumb([
+        { name: 'Accueil', url: baseUrl },
+        { name: 'Vie du Club', url: `${baseUrl}/#/club-life` }
+      ])
+    ]
   }
 };
 
