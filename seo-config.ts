@@ -155,7 +155,7 @@ const createBreadcrumb = (items: { name: string; url: string }[]) => ({
 
 export const seoConfig: { [key: string]: SEOConfig } = {
   home: {
-    title: 'Alpha Fight Club Saint-Ouen (93) | Club MMA, Grappling & JJB Île-de-France',
+    title: 'AFC | Alpha Fight Club Saint-Ouen 93',
     description: 'Site officiel de l\'Alpha Fight Club de Saint-Ouen (93) L\'un des meilleurs club de sport de combat à proximité de Paris et en Île-de-France.',
     keywords: `${baseKeywords}, club saint-ouen, club mma paris, club grappling paris, club jjb paris, cours mma ile de france, arts martiaux saint-ouen`,
     canonicalUrl: baseUrl,
@@ -217,7 +217,7 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   disciplines: {
-    title: 'Grappling No-Gi | MMA & JJB Saint-Ouen 93 | Alpha Fight Club Paris',
+    title: 'AFC | Grappling | Alpha Fight Club Saint-Ouen 93',
     description: 'Découvrez le Grappling No-Gi : lutte, soumissions, combat au sol. Alternative au MMA et JJB traditionnel. Cours à Saint-Ouen (93), accessible depuis Paris, Clichy, Saint-Denis. Débutants bienvenus.',
     keywords: `${baseKeywords}, qu'est-ce que le grappling, grappling no-gi, technique grappling, cours grappling paris, grappling vs jjb, grappling vs mma, combat au sol paris`,
     canonicalUrl: `${baseUrl}/disciplines`,
@@ -258,7 +258,7 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   pricing: {
-    title: 'Tarifs 2025-2026 | Club Grappling MMA Saint-Ouen 93 | Île-de-France',
+    title: 'AFC | Tarifs | Alpha Fight Club Saint-Ouen 93',
     description: 'Tarifs adhésion Alpha Fight Club Saint-Ouen : 230€ Audoniens, 245€ autres. Licence FFLDA incluse. Cours de Grappling, MMA, JJB. Accessible Paris, 92, 93, Île-de-France.',
     keywords: `${baseKeywords}, tarif club grappling, prix cours mma, adhésion club combat, tarif jjb paris, prix club sportif saint-ouen, licence fflda`,
     canonicalUrl: `${baseUrl}/pricing`,
@@ -285,7 +285,7 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   schedule: {
-    title: 'Planning Cours Grappling MMA | Saint-Ouen 93 | Horaires Île-de-France',
+    title: 'AFC | Planning | Alpha Fight Club Saint-Ouen 93',
     description: 'Horaires cours Grappling à Saint-Ouen : Mercredi & Vendredi 20h-22h, Dimanche 10h-13h (compétition). Métro ligne 13. Accessible Paris, Clichy, Saint-Denis, Hauts-de-Seine.',
     keywords: `${baseKeywords}, horaire cours grappling, planning mma paris, horaire jjb saint-ouen, cours soir grappling, entraînement mma ile de france`,
     canonicalUrl: `${baseUrl}/schedule`,
@@ -308,7 +308,7 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   team: {
-    title: 'Équipe & Coachs | Alpha Fight Club Saint-Ouen | Professeurs MMA Grappling 93',
+    title: 'AFC | Équipe | Alpha Fight Club Saint-Ouen 93',
     description: 'Thomas Le Godec, Champion de France, Ceinture Noire Grappling & JJB. Équipe de coachs expérimentés à Saint-Ouen (93). Formation MMA, Grappling, JJB en Île-de-France.',
     keywords: `${baseKeywords}, professeur grappling paris, coach mma saint-ouen, entraîneur jjb 93, ceinture noire grappling, champion france grappling, coach sportif saint-ouen`,
     canonicalUrl: `${baseUrl}/team`,
@@ -336,7 +336,7 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   results: {
-    title: 'Résultats & Palmarès | Alpha Fight Club | Champions Grappling MMA 93',
+    title: 'AFC | Résultats | Alpha Fight Club Saint-Ouen 93',
     description: 'Plus de 50 titres en Pankration. Club le plus titré de France depuis 2003. Championnat de France Grappling, compétitions MMA et JJB. Saint-Ouen, Île-de-France.',
     keywords: `${baseKeywords}, palmarès grappling, résultats compétition mma, champion france pankration, victoire jjb, médaille grappling, performance sportive saint-ouen`,
     canonicalUrl: `${baseUrl}/results`,
@@ -350,7 +350,7 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   contact: {
-    title: 'Contact | Alpha Fight Club Saint-Ouen 93 | Rejoindre Club MMA Grappling Paris',
+    title: 'AFC | Contact | Alpha Fight Club Saint-Ouen 93',
     description: 'Contactez Alpha Fight Club Saint-Ouen. Centre Sportif Pablo Neruda, Métro ligne 13 Mairie de Saint-Ouen. Cours de Grappling, MMA, JJB en Île-de-France (93, 92, Paris).',
     keywords: `${baseKeywords}, contact club grappling, inscription mma saint-ouen, rejoindre club jjb, essai gratuit grappling, cours découverte mma paris`,
     canonicalUrl: `${baseUrl}/contact`,
@@ -372,7 +372,7 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   shop: {
-    title: 'Boutique | Rashguard & Équipement Grappling MMA | Alpha Fight Club 93',
+    title: 'AFC | Boutique | Alpha Fight Club Saint-Ouen 93',
     description: 'Rashguard Alpha Fight Club et équipement Grappling No-Gi. Tenue officielle club MMA Saint-Ouen. Short combat, rashguard compétition. Livraison Île-de-France.',
     keywords: `${baseKeywords}, rashguard grappling, équipement mma, tenue no-gi, short jjb, equipement combat, vetement grappling, materiel mma paris`,
     canonicalUrl: `${baseUrl}/shop`,
@@ -401,7 +401,7 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   partners: {
-    title: 'Partenaires | Alpha Fight Club Saint-Ouen | Sponsors Grappling MMA 93',
+    title: 'AFC | Partenaires | Alpha Fight Club Saint-Ouen 93',
     description: 'Nos partenaires : Ville de Saint-Ouen, FFLDA, Comité Français de Grappling, Fight House. Soutiens du club MMA et Grappling en Île-de-France.',
     keywords: `${baseKeywords}, partenaires club sportif, sponsors mma, fflda, comité grappling france, ville saint-ouen sport`,
     canonicalUrl: `${baseUrl}/partners`,
@@ -417,7 +417,7 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   photos: {
-    title: 'Photos | Alpha Fight Club Saint-Ouen | Galerie Grappling MMA JJB 93',
+    title: 'AFC | Photos | Alpha Fight Club Saint-Ouen 93',
     description: 'Photos des entraînements, compétitions et vie du club Alpha Fight Club. Grappling, MMA, JJB à Saint-Ouen (93). Événements sportifs Île-de-France.',
     keywords: `${baseKeywords}, photos grappling, images mma, galerie jjb, competition photos, entrainement club saint-ouen`,
     canonicalUrl: `${baseUrl}/photos`,
@@ -439,7 +439,7 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   videos: {
-    title: 'Vidéos | Alpha Fight Club Saint-Ouen | Techniques Grappling MMA 93',
+    title: 'AFC | Vidéos | Alpha Fight Club Saint-Ouen 93',
     description: 'Vidéos techniques Grappling, combats MMA, entraînements JJB. Alpha Fight Club Saint-Ouen. Tutoriels arts martiaux, highlights compétitions Île-de-France.',
     keywords: `${baseKeywords}, videos grappling, tutoriel mma, technique jjb video, combat grappling, démonstration arts martiaux, cours video grappling`,
     canonicalUrl: `${baseUrl}/videos`,
@@ -465,7 +465,7 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   links: {
-    title: 'Liens Utiles | Alpha Fight Club | Ressources Grappling MMA JJB France',
+    title: 'AFC | Liens | Alpha Fight Club Saint-Ouen 93',
     description: 'Liens utiles : FFLDA, Comité Français de Grappling, ressources MMA et JJB. Informations sports de combat en Île-de-France et France.',
     keywords: `${baseKeywords}, liens grappling, ressources mma, sites jjb, federation lutte, informations sports combat`,
     canonicalUrl: `${baseUrl}/links`,
@@ -481,7 +481,7 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   fighters: {
-    title: 'Combattants d\'Élite | Alpha Fight Club Saint-Ouen | Champions Grappling MMA 93',
+    title: 'AFC | Combattants | Alpha Fight Club Saint-Ouen 93',
     description: 'Nos combattants d\'élite : champions de Grappling, JJB et No-Gi. Palmarès, résultats et titres des compétiteurs Alpha Fight Club Saint-Ouen (93). Champions Île-de-France.',
     keywords: `${baseKeywords}, combattants grappling, champions jjb, fighters mma, competiteurs grappling, athletes combat, elite fighters saint-ouen, champions grappling paris, medaille jjb, champion france grappling`,
     canonicalUrl: `${baseUrl}/fighters`,
@@ -508,7 +508,7 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   legal: {
-    title: 'Mentions Légales | Alpha Fight Club Saint-Ouen 93',
+    title: 'AFC | Mentions Légales | Alpha Fight Club Saint-Ouen 93',
     description: 'Mentions légales du site Alpha Fight Club Saint-Ouen. Informations juridiques, éditeur, hébergement, propriété intellectuelle.',
     keywords: `alpha fight club, mentions légales, informations juridiques, saint-ouen 93`,
     canonicalUrl: `${baseUrl}/legal`,
@@ -524,7 +524,7 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   privacy: {
-    title: 'Politique de Confidentialité | Alpha Fight Club Saint-Ouen 93',
+    title: 'AFC | Confidentialité | Alpha Fight Club Saint-Ouen 93',
     description: 'Politique de confidentialité et protection des données personnelles Alpha Fight Club. RGPD, cookies, droits utilisateurs.',
     keywords: `alpha fight club, politique confidentialité, rgpd, protection données, vie privée`,
     canonicalUrl: `${baseUrl}/privacy`,
@@ -540,7 +540,7 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
   
   clubLife: {
-    title: 'Vie du Club | Alpha Fight Club Saint-Ouen | Stages & Événements Grappling MMA 93',
+    title: 'AFC | Vie du Club | Alpha Fight Club Saint-Ouen 93',
     description: 'Stages techniques, événements sociaux et vie du club Alpha Fight Club. Découvrez l\'esprit d\'équipe en dehors du tatami à Saint-Ouen (93).',
     keywords: `${baseKeywords}, vie du club, stages grappling, événements mma, esprit d'équipe, club sportif saint-ouen, stages techniques grappling`,
     canonicalUrl: `${baseUrl}/club-life`,
