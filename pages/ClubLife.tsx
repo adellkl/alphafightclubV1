@@ -32,7 +32,12 @@ const ClubLife: React.FC = () => {
             </div>
             <div className="order-1 md:order-2">
                 <div className="relative p-3 sm:p-4 border-2 border-black rounded-sm">
-                     <img src="https://images.unsplash.com/photo-1544367563-12123d8965cd?q=80&w=800&auto=format&fit=crop" alt="Stage" className="w-full grayscale hover:grayscale-0 transition-all duration-500" />
+                     <img 
+                       src="https://images.unsplash.com/photo-1544367563-12123d8965cd?q=80&w=800&auto=format&fit=crop" 
+                       alt="Stage technique Grappling Alpha Fight Club Saint-Ouen - Formation arts martiaux 93" 
+                       className="w-full grayscale hover:grayscale-0 transition-all duration-500"
+                       loading="lazy"
+                     />
                      <div className="absolute -bottom-3 sm:-bottom-4 -left-3 sm:-left-4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-brand-red z-[-1]"></div>
                 </div>
             </div>
@@ -41,7 +46,12 @@ const ClubLife: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
             <div>
                  <div className="relative p-3 sm:p-4 border-2 border-black rounded-sm">
-                    <img src="https://images.unsplash.com/photo-1517438476312-10d79c077509?q=80&w=800&auto=format&fit=crop" alt="Event" className="w-full grayscale hover:grayscale-0 transition-all duration-500" />
+                    <img 
+                      src="https://images.unsplash.com/photo-1517438476312-10d79c077509?q=80&w=800&auto=format&fit=crop" 
+                      alt="Événement social Alpha Fight Club Saint-Ouen - Vie du club Grappling MMA 93" 
+                      className="w-full grayscale hover:grayscale-0 transition-all duration-500"
+                      loading="lazy"
+                    />
                     <div className="absolute -top-3 sm:-top-4 -right-3 sm:-right-4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gray-200 z-[-1]"></div>
                  </div>
             </div>

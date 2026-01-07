@@ -52,9 +52,10 @@ const Fighters: React.FC = () => {
                 <div className="relative h-60 sm:h-72 md:h-80 overflow-hidden">
                   <img
                     src={fighter.image}
-                    alt={`${fighter.name} - Combattant Grappling Alpha Fight Club`}
+                    alt={`${fighter.name} ${fighter.nickname ? `"${fighter.nickname}"` : ''} - Combattant d'élite Grappling MMA Alpha Fight Club Saint-Ouen - ${fighter.belt} - ${fighter.weight}`}
                     className="w-full h-full object-cover"
                     style={isMathis ? { objectPosition: 'center 10%' } : undefined}
+                    loading={idx < 3 ? "eager" : "lazy"}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"></div>
 

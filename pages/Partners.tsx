@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Section from '../components/Section';
 import SEO from '../components/SEO';
 import { PARTNERS } from '../constants';
@@ -23,7 +24,12 @@ const Partners: React.FC = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8 md:gap-12 items-center max-w-4xl mx-auto">
             {PARTNERS.map((partner, idx) => (
                 <a key={idx} href={partner.url} className="group flex flex-col items-center text-center p-4 sm:p-6 md:p-8 border-2 border-transparent hover:border-gray-100 hover:shadow-2xl rounded-sm transition-all bg-white">
-                    <img src={partner.logo} alt={`${partner.name} - Partenaire Alpha Fight Club Saint-Ouen - Club Grappling MMA`} className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-contain mb-3 sm:mb-4 md:mb-6 grayscale group-hover:grayscale-0 transition-all duration-300 opacity-60 group-hover:opacity-100" />
+                    <img 
+                      src={partner.logo} 
+                      alt={`${partner.name} - Partenaire Alpha Fight Club Saint-Ouen - Club Grappling MMA 93`} 
+                      className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-contain mb-3 sm:mb-4 md:mb-6 grayscale group-hover:grayscale-0 transition-all duration-300 opacity-60 group-hover:opacity-100"
+                      loading="lazy"
+                    />
                     <h3 className="font-bold text-gray-400 uppercase tracking-widest text-xs sm:text-sm group-hover:text-black transition-colors">{partner.name}</h3>
                 </a>
             ))}
@@ -35,9 +41,9 @@ const Partners: React.FC = () => {
             <p className="text-gray-400 mb-6 sm:mb-8 max-w-xl mx-auto text-sm sm:text-base">
                 Vous souhaitez associer l'image de votre entreprise aux valeurs de combat, de respect et de dépassement de soi ?
             </p>
-            <a href="#/contact" className="inline-block border-2 border-white text-white px-6 sm:px-8 py-2.5 sm:py-3 font-bold uppercase tracking-widest text-xs sm:text-sm hover:bg-white hover:text-black transition-colors rounded-sm">
+            <Link to="/contact" className="inline-block border-2 border-white text-white px-6 sm:px-8 py-2.5 sm:py-3 font-bold uppercase tracking-widest text-xs sm:text-sm hover:bg-white hover:text-black transition-colors rounded-sm">
                 Nous contacter
-            </a>
+            </Link>
         </div>
       </Section>
     </main>

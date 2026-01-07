@@ -68,6 +68,19 @@ const SEO: React.FC<SEOProps> = ({
         document.head.appendChild(linkElement);
       }
       linkElement.setAttribute('href', canonicalUrl);
+      
+      // Alternate URL (.net) - Ajouter seulement si c'est un .com
+      if (canonicalUrl.includes('.com')) {
+        const alternateUrl = canonicalUrl.replace('.com', '.net');
+        let alternateElement = document.querySelector('link[rel="alternate"][hreflang="x-alternate"]');
+        if (!alternateElement) {
+          alternateElement = document.createElement('link');
+          alternateElement.setAttribute('rel', 'alternate');
+          alternateElement.setAttribute('hreflang', 'x-alternate');
+          document.head.appendChild(alternateElement);
+        }
+        alternateElement.setAttribute('href', alternateUrl);
+      }
     }
 
     // JSON-LD structured data

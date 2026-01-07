@@ -185,22 +185,6 @@ const Navbar: React.FC = () => {
                   )}
                 </motion.div>
               ))}
-
-              {/* CTA Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: NAV_ITEMS.length * 0.05 + 0.1, duration: 0.3 }}
-                className="pt-6 mt-4 border-t-2 border-gray-200"
-              >
-                <NavLink
-                  to="/contact"
-                  onClick={() => setIsOpen(false)}
-                  className="block w-full text-center bg-brand-red text-white px-8 py-4 font-display font-bold uppercase italic skew-x-[-10deg] hover:bg-black transition-all duration-300 shadow-lg hover:shadow-xl"
-                >
-                  <span className="block skew-x-[10deg]">Essai Gratuit</span>
-                </NavLink>
-              </motion.div>
             </div>
           </motion.div>
         )}

@@ -1,6 +1,7 @@
 import React from 'react';
 import Section from '../components/Section';
 import SEO from '../components/SEO';
+import seoConfig from '../seo-config';
 import { Scale, Building2, Mail, Globe } from 'lucide-react';
 
 const LegalNotice: React.FC = () => {
@@ -92,7 +93,7 @@ const LegalNotice: React.FC = () => {
               </p>
               <p>
                 Pour plus d'informations sur la protection de vos données, consultez notre{' '}
-                <a href="/#/privacy" className="text-brand-red font-bold hover:underline">Politique de confidentialité</a>.
+                <a href="/privacy" className="text-brand-red font-bold hover:underline">Politique de confidentialité</a>.
               </p>
             </div>
           </div>

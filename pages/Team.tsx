@@ -40,8 +40,9 @@ const Team: React.FC = () => {
                     <div className="aspect-[4/5] overflow-hidden relative">
                       <img 
                         src={coach.image} 
-                        alt={`${coach.name} - ${coach.role} - Coach Grappling MMA JJB Saint-Ouen Alpha Fight Club`} 
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" 
+                        alt={`${coach.name} - ${coach.role} - Coach Grappling MMA JJB Saint-Ouen Alpha Fight Club 93`} 
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                        loading={idx < 2 ? "eager" : "lazy"}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-100 flex items-end p-8">
                         {/* Overlay content if needed */}

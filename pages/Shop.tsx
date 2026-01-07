@@ -38,8 +38,9 @@ const Shop: React.FC = () => {
                     <div className="aspect-square bg-gray-50 overflow-hidden relative">
                         <img
                           src={product.image}
-                          alt={`${product.name} - Équipement Grappling MMA No-Gi - Alpha Fight Club Saint-Ouen`}
+                          alt={`${product.name} - Équipement Grappling MMA No-Gi - Alpha Fight Club Saint-Ouen 93 - Prix ${product.price}`}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
                         />
                         {/* Category Badge */}
                         <div className="absolute top-3 right-3 bg-black/70 text-white text-[11px] font-bold px-3 py-1 uppercase tracking-wider rounded-sm">

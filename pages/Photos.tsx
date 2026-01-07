@@ -101,8 +101,9 @@ const Photos: React.FC = () => {
               >
                 <img
                   src={photo}
-                  alt={`Alpha Fight Club - Photo ${idx + 1}`}
+                  alt={`Alpha Fight Club Saint-Ouen - Photo entraînement Grappling MMA ${idx + 1} - Club arts martiaux 93`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading={idx < 6 ? "eager" : "lazy"}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
               </div>
@@ -133,7 +134,7 @@ const Photos: React.FC = () => {
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               src={selectedPhoto}
-              alt="Alpha Fight Club"
+              alt="Alpha Fight Club Saint-Ouen - Photo entraînement Grappling MMA - Club arts martiaux 93"
               className="max-w-full max-h-full object-contain"
               onClick={(e) => e.stopPropagation()}
             />

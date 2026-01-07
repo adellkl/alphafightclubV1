@@ -270,13 +270,15 @@ const Home: React.FC = () => {
               <div className="aspect-[3/4] overflow-hidden rounded-sm relative z-10 shadow-2xl group">
                  <img
                    src={COACHES[0].image}
-                   alt="Thomas Le Godec - Professeur Grappling MMA Saint-Ouen - Champion de France - Ceinture Noire JJB"
+                   alt="Thomas Le Godec - Professeur principal Grappling MMA Alpha Fight Club Saint-Ouen 93 - Champion de France - Ceinture Noire JJB"
                    className="w-full h-full object-cover transition-all duration-700 absolute inset-0"
+                   loading="eager"
                  />
                  <img
                    src="/images/coatch/531613204_18520256770007907_8549364080914176159_n..webp"
-                   alt="Thomas Le Godec - Professeur Grappling MMA Saint-Ouen - Champion de France - Ceinture Noire JJB"
+                   alt="Thomas Le Godec en action - Coach Grappling MMA Alpha Fight Club Saint-Ouen 93"
                    className="w-full h-full object-cover transition-all duration-700 absolute inset-0 opacity-0 group-hover:opacity-100"
+                   loading="lazy"
                  />
               </div>
               {/* Decor border behind */}

@@ -82,8 +82,9 @@ const Videos: React.FC = () => {
                 >
                     <img 
                       src={video.thumbnail} 
-                      alt={video.title} 
+                      alt={`${video.title} - Vidéo Grappling MMA Alpha Fight Club Saint-Ouen`}
                       className="w-full h-full object-cover opacity-80 group-hover:opacity-60 transition-opacity duration-500"
+                      loading={idx < 3 ? "eager" : "lazy"}
                       onError={(e) => {
                         // Fallback si maxresdefault n'existe pas
                         (e.target as HTMLImageElement).src = `https://i.ytimg.com/vi/${video.guid}/hqdefault.jpg`;

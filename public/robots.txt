@@ -4,8 +4,9 @@ Allow: /
 Disallow: /api/
 Disallow: /*.json$
 
-# Sitemap
-Sitemap: https://alphafightclub.fr/sitemap.xml
+# Sitemaps
+Sitemap: https://alphafightclub.com/sitemap.xml
+Sitemap: https://alphafightclub.net/sitemap.xml
 
 # Crawl-delay (optionnel, pour éviter la surcharge)
 Crawl-delay: 1

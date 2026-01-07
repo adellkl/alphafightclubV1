@@ -49,8 +49,9 @@ const Disciplines: React.FC = () => {
               <div className="aspect-[4/3] overflow-hidden rounded-sm border border-gray-200 shadow-lg">
               <img
                 src={PROGRAMS[0].image}
-                  alt="Grappling No-Gi - Techniques de combat au sol"
-                  className="w-full h-full object-cover"
+                alt="Grappling No-Gi - Techniques de combat au sol - Alpha Fight Club Saint-Ouen - Cours arts martiaux 93"
+                className="w-full h-full object-cover"
+                loading="eager"
               />
               </div>
             </div>

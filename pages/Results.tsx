@@ -447,8 +447,9 @@ const GalleryItem: React.FC<{ index: number }> = ({ index }) => {
     <div className={`relative group overflow-hidden aspect-[4/3] cursor-pointer bg-gray-100 rounded-sm ${isLoading ? 'animate-pulse' : ''}`}>
       <img 
         src={imageUrl} 
-        alt={`Compétiteur ${index}`} 
+        alt={`Compétiteur Alpha Fight Club ${index} - Champion Grappling MMA Saint-Ouen 93`}
         className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+        loading={index <= 8 ? "eager" : "lazy"}
         onLoad={() => setIsLoading(false)}
         onError={() => setIsVisible(false)} // Cache l'élément si l'image n'est pas trouvée
       />

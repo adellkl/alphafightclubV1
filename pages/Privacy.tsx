@@ -1,6 +1,7 @@
 import React from 'react';
 import Section from '../components/Section';
 import SEO from '../components/SEO';
+import seoConfig from '../seo-config';
 import { Shield, Eye, Lock, Database, Users, FileText } from 'lucide-react';
 
 const Privacy: React.FC = () => {
