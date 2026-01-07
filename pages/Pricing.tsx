@@ -4,6 +4,7 @@ import SEO from '../components/SEO';
 import { PRICING, REGISTRATION_LINK } from '../constants';
 import seoConfig from '../seo-config';
 import { Check, AlertCircle, MapPin, Calendar, Clock, FileText, Smartphone } from 'lucide-react';
+import DischargeForm from '../components/DischargeForm';
 
 const Pricing: React.FC = () => {
   return (
@@ -135,6 +136,22 @@ const Pricing: React.FC = () => {
             </div>
           </div>
 
+        </div>
+      </Section>
+
+      {/* Formulaire de décharge Open Mat */}
+      <Section className="py-10">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-6">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-black uppercase mb-2">
+              Formulaire de Décharge - Open Mat
+            </h2>
+            <div className="w-20 h-1 bg-brand-red mb-4"></div>
+            <p className="text-gray-600 text-base">
+              Les participants aux Open Mat du dimanche doivent remplir ce formulaire obligatoirement.
+            </p>
+          </div>
+          <DischargeForm />
         </div>
       </Section>
     </main>

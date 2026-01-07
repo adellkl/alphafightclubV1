@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, MapPin, Calendar, Clock, ChevronRight, Shield, Award, Medal, CheckCircle } from 'lucide-react';
+import { ArrowRight, MapPin, Calendar, Clock, ChevronRight, Shield, Award, Medal, CheckCircle, FileText } from 'lucide-react';
 import Section from '../components/Section';
 import Preloader from '../components/Preloader';
 import SEO from '../components/SEO';
@@ -85,6 +85,15 @@ const Home: React.FC = () => {
                 >
                   Voir le Planning
                 </Link>
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfN4JihjwitHvpGlFwis8nkiqBo3bc5rRmxiIpWk4hw8ZOKUA/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 sm:py-4 border border-white/40 text-white font-display font-bold uppercase text-sm sm:text-base tracking-widest hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2 rounded-sm w-full sm:w-auto"
+                >
+                  <FileText size={16} />
+                  Décharge Open Mat
+                </a>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-white mt-2">
