@@ -14,6 +14,38 @@ const Navbar: React.FC = () => {
     setIsOpen(false);
   }, [location]);
 
+  // Block body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      // Save current scroll position
+      const scrollY = window.scrollY;
+      // Block body scroll
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Restore body scroll
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      // Restore scroll position
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    }
+
+    // Cleanup function
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   return (
     <nav className="fixed w-full z-50 bg-white border-b border-gray-100 py-3 md:py-4 shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
@@ -134,22 +166,22 @@ const Navbar: React.FC = () => {
             }}
             className="lg:hidden fixed top-[69px] right-0 w-full sm:w-96 h-[calc(100vh-69px)] bg-white shadow-2xl z-50 overflow-y-auto"
           >
-            <div className="p-6 space-y-2">
+            <div className="p-4 space-y-1">
               {NAV_ITEMS.map((item, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.05, duration: 0.3 }}
-                  className="border-b border-gray-100 last:border-0 pb-2 last:pb-0"
+                  className="border-b border-gray-100 last:border-0 pb-1 last:pb-0"
                 >
                   {item.children ? (
-                    <div className="py-3">
-                      <div className="text-lg font-display font-bold uppercase text-black mb-3 flex items-center gap-2">
-                        <span className="w-1 h-6 bg-brand-red"></span>
+                    <div className="py-2">
+                      <div className="text-sm font-display font-bold uppercase text-black mb-2 flex items-center gap-1.5">
+                        <span className="w-0.5 h-4 bg-brand-red"></span>
                         {item.label}
                       </div>
-                      <div className="flex flex-col gap-2 pl-5 ml-1 border-l-2 border-brand-red/30">
+                      <div className="flex flex-col gap-1 pl-4 ml-0.5 border-l-2 border-brand-red/30">
                         {item.children.map((subItem, subIdx) => (
                           <motion.div
                             key={subIdx}
@@ -160,10 +192,10 @@ const Navbar: React.FC = () => {
                             <NavLink
                               to={subItem.path}
                               onClick={() => setIsOpen(false)}
-                              className="block py-2.5 px-3 text-sm font-semibold text-gray-600 hover:text-brand-red hover:bg-gray-50 rounded-sm uppercase tracking-wider transition-all duration-200 group"
+                              className="block py-1.5 px-2 text-xs font-semibold text-gray-600 hover:text-brand-red hover:bg-gray-50 rounded-sm uppercase tracking-wider transition-all duration-200 group"
                             >
-                              <span className="flex items-center gap-2">
-                                <span className="w-1.5 h-1.5 bg-brand-red/0 group-hover:bg-brand-red rounded-full transition-all duration-200"></span>
+                              <span className="flex items-center gap-1.5">
+                                <span className="w-1 h-1 bg-brand-red/0 group-hover:bg-brand-red rounded-full transition-all duration-200"></span>
                                 {subItem.label}
                               </span>
                             </NavLink>
@@ -175,16 +207,31 @@ const Navbar: React.FC = () => {
                     <NavLink
                       to={item.path}
                       onClick={() => setIsOpen(false)}
-                      className="block py-4 px-3 text-lg font-display font-bold uppercase text-black hover:text-brand-red hover:bg-gray-50 rounded-sm transition-all duration-200 group"
+                      className="block py-2.5 px-2 text-sm font-display font-bold uppercase text-black hover:text-brand-red hover:bg-gray-50 rounded-sm transition-all duration-200 group"
                     >
-                      <span className="flex items-center gap-3">
-                        <span className="w-1 h-6 bg-brand-red/0 group-hover:bg-brand-red transition-all duration-200"></span>
+                      <span className="flex items-center gap-2">
+                        <span className="w-0.5 h-4 bg-brand-red/0 group-hover:bg-brand-red transition-all duration-200"></span>
                         {item.label}
                       </span>
                     </NavLink>
                   )}
                 </motion.div>
               ))}
+              {/* Essai Gratuit Button */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: NAV_ITEMS.length * 0.05, duration: 0.3 }}
+                className="pt-4 mt-2 border-t border-gray-200"
+              >
+                <NavLink
+                  to="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="block w-full bg-brand-red text-white px-4 py-3 font-display font-bold uppercase italic skew-x-[-10deg] hover:bg-black transition-colors shadow-lg text-sm text-center"
+                >
+                  <span className="block skew-x-[10deg]">Essai Gratuit</span>
+                </NavLink>
+              </motion.div>
             </div>
           </motion.div>
         )}
