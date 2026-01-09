@@ -175,7 +175,7 @@ export const PARTNERS: Partner[] = [
   },
   {
     name: "Fédération Française de Lutte",
-    logo: "https://placehold.co/150x80/EEE/31343C?text=FFLDA",
+    logo: "/images/partenaires/cropped-fflutte-blanc.png",
     url: "https://www.fflutte.com/"
   },
   {
