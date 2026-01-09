@@ -45,7 +45,7 @@ export const FIGHTERS_DATA: Fighter[] = [
       "Vice champion de France U20"
     ],
     image: "/images/competitor/mathis.jpeg",
-    specialty: "Explosivité • Takedowns",
+    specialty: "Soumissions",
     quote: "Toujours viser plus haut."
   },
   {
