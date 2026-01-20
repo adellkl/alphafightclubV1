@@ -50,6 +50,19 @@ const baseKeywords = [
   'débutant', 'cours débutant', 'adultes', 'ados', 'mixte',
   'fflda', 'fédération française de lutte',
 
+  // Cours enfants
+  'cours enfants', 'cours enfant', 'grappling enfants', 'jjb enfants', 'jiu jitsu enfants',
+  'sport combat enfants', 'arts martiaux enfants', 'cours enfants saint-ouen',
+  'activité sportive enfants', 'club enfants', 'école jjb enfants', 'école grappling enfants',
+  'inscrire mon enfant grappling', 'inscrire mon enfant jjb', 'cours jjb jeunes',
+  'grappling pour enfants', 'jiu jitsu brésilien enfants', 'no-gi enfants',
+  'sport de combat 6 ans', 'sport de combat 7 ans', 'sport de combat 8 ans',
+  'sport de combat 9 ans', 'sport de combat 10 ans', 'arts martiaux 6-14 ans',
+  'cours jjb enfants paris', 'grappling enfants 93', 'jjb enfants saint-ouen',
+  'activité enfant saint-ouen', 'sport enfant 93', 'cours lutte enfants',
+  'self défense enfants', 'confiance en soi enfants', 'discipline enfants',
+  'cours martial arts enfants', 'ecole combat enfants', 'stage grappling enfants',
+
   // Longue traîne et requêtes spécifiques
   'club grappling près de moi', 'cours mma près de moi', 'jjb paris nord',
   'où pratiquer grappling paris', 'meilleur club grappling île de france',
@@ -94,6 +107,13 @@ const organizationSchema = {
     longitude: 2.3339
   },
   openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Monday',
+      opens: '17:00',
+      closes: '19:00',
+      description: 'Cours JJB No-Gi Enfants (6-14 ans)'
+    },
     {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: 'Wednesday',
@@ -155,9 +175,9 @@ const createBreadcrumb = (items: { name: string; url: string }[]) => ({
 
 export const seoConfig: { [key: string]: SEOConfig } = {
   home: {
-    title: 'AFC | Alpha Fight Club Saint-Ouen 93',
-    description: 'Site officiel de l\'Alpha Fight Club de Saint-Ouen (93) L\'un des meilleurs club de sport de combat à proximité de Paris et en Île-de-France.',
-    keywords: `${baseKeywords}, club saint-ouen, club mma paris, club grappling paris, club jjb paris, cours mma ile de france, arts martiaux saint-ouen`,
+    title: 'AFC | Alpha Fight Club Saint-Ouen 93 | Adultes & Enfants',
+    description: 'Alpha Fight Club Saint-Ouen (93) : cours de Grappling No-Gi pour adultes et enfants (6-14 ans). Club de JJB, MMA et sport de combat à proximité de Paris. Essai gratuit.',
+    keywords: `${baseKeywords}, club saint-ouen, club mma paris, club grappling paris, club jjb paris, cours mma ile de france, arts martiaux saint-ouen, inscrire mon enfant grappling, cours enfants saint-ouen, jjb enfants 93`,
     canonicalUrl: baseUrl,
     ogImage: defaultOgImage,
     ogType: 'website',
@@ -208,7 +228,23 @@ export const seoConfig: { [key: string]: SEOConfig } = {
             'name': 'Quels sont les horaires des cours ?',
             'acceptedAnswer': {
               '@type': 'Answer',
-              'text': 'Les cours de Grappling ont lieu le mercredi de 20h à 22h et le vendredi de 20h à 22h. Un entraînement compétition est également proposé le dimanche de 10h à 13h sur avis du professeur.'
+              'text': 'Les cours de Grappling adultes ont lieu le mercredi de 20h à 22h et le vendredi de 20h à 22h. Les cours pour enfants (6-14 ans) sont proposés le lundi : 17h-18h pour les 6-9 ans et 18h-19h pour les 10-14 ans. Un entraînement compétition est également proposé le dimanche de 10h à 13h sur avis du professeur.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Proposez-vous des cours pour enfants ?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Oui, Alpha Fight Club propose des cours de JJB No-Gi spécialement adaptés aux enfants tous les lundis. Deux créneaux sont disponibles : 17h-18h pour les 6-9 ans et 18h-19h pour les 10-14 ans. Les cours sont encadrés par Mathis et Anis, avec un enseignement ludique et adapté à chaque tranche d\'âge.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'À partir de quel âge mon enfant peut-il pratiquer le Grappling ?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Les enfants peuvent commencer le JJB No-Gi dès 6 ans à Alpha Fight Club. Nous proposons deux groupes : 6-9 ans et 10-14 ans, avec des cours adaptés au développement physique et mental de chaque tranche d\'âge. Un cours d\'essai gratuit est disponible pour tous les enfants.'
             }
           }
         ]
@@ -217,9 +253,9 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   disciplines: {
-    title: 'AFC | Grappling | Alpha Fight Club Saint-Ouen 93',
-    description: 'Découvrez le Grappling No-Gi : lutte, soumissions, combat au sol. Alternative au MMA et JJB traditionnel. Cours à Saint-Ouen (93), accessible depuis Paris, Clichy, Saint-Denis. Débutants bienvenus.',
-    keywords: `${baseKeywords}, qu'est-ce que le grappling, grappling no-gi, technique grappling, cours grappling paris, grappling vs jjb, grappling vs mma, combat au sol paris`,
+    title: 'AFC | Grappling No-Gi | Adultes & Enfants | Saint-Ouen 93',
+    description: 'Découvrez le Grappling No-Gi à Saint-Ouen : cours adultes et enfants (6-14 ans). Lutte, soumissions, combat au sol. JJB sans kimono. Accessible depuis Paris, Clichy, Saint-Denis. Débutants bienvenus.',
+    keywords: `${baseKeywords}, qu'est-ce que le grappling, grappling no-gi, technique grappling, cours grappling paris, grappling vs jjb, grappling vs mma, combat au sol paris, grappling pour enfants, jjb enfants paris`,
     canonicalUrl: `${baseUrl}/disciplines`,
     ogImage: defaultOgImage,
     ogType: 'article',
@@ -258,9 +294,9 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   pricing: {
-    title: 'AFC | Tarifs | Alpha Fight Club Saint-Ouen 93',
-    description: 'Tarifs adhésion Alpha Fight Club Saint-Ouen : 230€ Audoniens, 245€ autres. Licence FFLDA incluse. Cours de Grappling, MMA, JJB. Accessible Paris, 92, 93, Île-de-France.',
-    keywords: `${baseKeywords}, tarif club grappling, prix cours mma, adhésion club combat, tarif jjb paris, prix club sportif saint-ouen, licence fflda`,
+    title: 'AFC | Tarifs Adultes & Enfants | Alpha Fight Club Saint-Ouen 93',
+    description: 'Tarifs Alpha Fight Club Saint-Ouen : 230€ Audoniens, 245€ autres. Cours adultes et enfants (6-14 ans). Licence FFLDA incluse. Grappling, JJB No-Gi. Essai gratuit. Paris, 92, 93.',
+    keywords: `${baseKeywords}, tarif club grappling, prix cours mma, adhésion club combat, tarif jjb paris, prix club sportif saint-ouen, licence fflda, tarif cours enfants, prix jjb enfants, inscription enfant grappling`,
     canonicalUrl: `${baseUrl}/pricing`,
     ogImage: defaultOgImage,
     ogType: 'website',
@@ -285,9 +321,9 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   schedule: {
-    title: 'AFC | Planning | Alpha Fight Club Saint-Ouen 93',
-    description: 'Horaires cours Grappling à Saint-Ouen : Mercredi & Vendredi 20h-22h, Dimanche 10h-13h (compétition). Métro ligne 13. Accessible Paris, Clichy, Saint-Denis, Hauts-de-Seine.',
-    keywords: `${baseKeywords}, horaire cours grappling, planning mma paris, horaire jjb saint-ouen, cours soir grappling, entraînement mma ile de france`,
+    title: 'AFC | Planning | Alpha Fight Club Saint-Ouen 93 | Adultes & Enfants',
+    description: 'Horaires cours Grappling Saint-Ouen : Adultes Mer & Ven 20h-22h, Enfants (6-14 ans) Lundi 17h-19h, Compétition Dim 10h-13h. Métro ligne 13. Accessible Paris, Clichy, Saint-Denis.',
+    keywords: `${baseKeywords}, horaire cours grappling, planning mma paris, horaire jjb saint-ouen, cours soir grappling, entraînement mma ile de france, horaire cours enfants, planning jjb enfants, cours enfants lundi`,
     canonicalUrl: `${baseUrl}/schedule`,
     ogImage: defaultOgImage,
     ogType: 'website',
@@ -302,7 +338,85 @@ export const seoConfig: { [key: string]: SEOConfig } = {
         '@type': 'Schedule',
         name: 'Horaires des cours de Grappling',
         scheduleTimezone: 'Europe/Paris',
-        byDay: ['Wednesday', 'Friday', 'Sunday']
+        byDay: ['Monday', 'Wednesday', 'Friday', 'Sunday']
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Course',
+        name: 'Cours JJB No-Gi pour Enfants',
+        description: 'Cours de Jiu-Jitsu Brésilien No-Gi spécialement conçu pour les enfants de 6 à 14 ans. Apprentissage ludique et adapté à chaque tranche d\'âge.',
+        provider: {
+          '@type': 'SportsOrganization',
+          name: 'Alpha Fight Club',
+          sameAs: baseUrl
+        },
+        audience: {
+          '@type': 'EducationalAudience',
+          educationalRole: 'student',
+          audienceType: 'Children',
+          suggestedMinAge: 6,
+          suggestedMaxAge: 14
+        },
+        hasCourseInstance: [
+          {
+            '@type': 'CourseInstance',
+            courseMode: 'onsite',
+            courseSchedule: {
+              '@type': 'Schedule',
+              byDay: 'Monday',
+              startTime: '17:00',
+              endTime: '18:00',
+              scheduleTimezone: 'Europe/Paris'
+            },
+            instructor: {
+              '@type': 'Person',
+              name: 'Mathis & Anis'
+            },
+            location: {
+              '@type': 'Place',
+              name: 'Centre Sportif Pablo Neruda',
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: '17 Rue Salvador Allende',
+                addressLocality: 'Saint-Ouen-sur-Seine',
+                postalCode: '93400',
+                addressCountry: 'FR'
+              }
+            }
+          },
+          {
+            '@type': 'CourseInstance',
+            courseMode: 'onsite',
+            courseSchedule: {
+              '@type': 'Schedule',
+              byDay: 'Monday',
+              startTime: '18:00',
+              endTime: '19:00',
+              scheduleTimezone: 'Europe/Paris'
+            },
+            instructor: {
+              '@type': 'Person',
+              name: 'Mathis & Anis'
+            },
+            location: {
+              '@type': 'Place',
+              name: 'Centre Sportif Pablo Neruda',
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: '17 Rue Salvador Allende',
+                addressLocality: 'Saint-Ouen-sur-Seine',
+                postalCode: '93400',
+                addressCountry: 'FR'
+              }
+            }
+          }
+        ],
+        offers: {
+          '@type': 'Offer',
+          category: 'Cours d\'essai gratuit',
+          price: '0',
+          priceCurrency: 'EUR'
+        }
       }
     ]
   },

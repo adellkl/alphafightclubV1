@@ -6,6 +6,11 @@ Site web officiel du club de Grappling Alpha Fight Club à Saint-Ouen (93).
 
 Alpha Fight Club est un club de Grappling, MMA et Jiu-Jitsu Brésilien fondé en 2003 à Saint-Ouen-sur-Seine. Premier club de Pankration en France.
 
+### Cours Proposés
+- **Adultes** : Grappling No-Gi (Mercredi & Vendredi 20h-22h)
+- **Enfants** : JJB No-Gi pour les 6-14 ans (Lundi 17h-19h)
+- **Compétition** : Dimanche 10h-13h (sur avis du professeur)
+
 ## 🚀 Technologies
 
 - **React** + **TypeScript**

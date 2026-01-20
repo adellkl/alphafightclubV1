@@ -49,6 +49,7 @@ const Pricing: React.FC = () => {
                        <div>
                           <h4 className="font-bold uppercase text-base sm:text-lg text-white">Horaires</h4>
                           <ul className="text-gray-300 space-y-1 mt-1 text-sm sm:text-base">
+                             <li><strong className="text-white">Lundi :</strong> 17h00 - 19h00 <span className="text-xs text-blue-400 font-semibold">(Cours Enfants)</span></li>
                              <li><strong className="text-white">Mercredi & Vendredi :</strong> 20h00 - 22h00</li>
                              <li><strong className="text-white">Dimanche :</strong> 10h00 - 13h00 <span className="text-xs text-gray-500">(Compétiteurs)</span></li>
                           </ul>

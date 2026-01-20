@@ -33,7 +33,7 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Vidéos', path: '/videos' },
     ]
   },
-  { label: 'Boutique', path: '/shop' },
+  // { label: 'Boutique', path: '/shop' }, // Temporairement masqué
 ];
 
 export const FEATURES: Feature[] = [
@@ -45,7 +45,7 @@ export const FEATURES: Feature[] = [
   {
     icon: Users,
     title: "Mixte & Accessible",
-    description: "Ouvert à tous (hommes et femmes) dès 15 ans (avec autorisation parentale). Débutants bienvenus."
+    description: "Ouvert à tous (hommes et femmes) dès 15 ans. Nouveauté : cours pour enfants de 6 à 14 ans les lundis !"
   },
   {
     icon: Trophy,
@@ -120,6 +120,13 @@ export const PRICING: PricePlan[] = [
 ];
 
 export const SCHEDULE: ScheduleItem[] = [
+  {
+    day: "Lundi",
+    classes: [
+      { time: "17:00 - 18:00", name: "JJB No-Gi Enfants (6-9 ans)", type: "nogi" },
+      { time: "18:00 - 19:00", name: "JJB No-Gi Enfants (10-14 ans)", type: "nogi" }
+    ]
+  },
   {
     day: "Mercredi",
     classes: [

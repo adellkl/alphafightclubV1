@@ -96,14 +96,19 @@ const Home: React.FC = () => {
                 </a>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-white mt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-white mt-2">
                 <div className="bg-white/10 border border-white/10 rounded-sm p-3">
                   <div className="text-xs uppercase text-gray-300 mb-1">Lieu</div>
                   <div className="font-bold text-sm sm:text-base">Saint-Ouen (93)</div>
                 </div>
                 <div className="bg-white/10 border border-white/10 rounded-sm p-3">
-                  <div className="text-xs uppercase text-gray-300 mb-1">Horaires</div>
+                  <div className="text-xs uppercase text-gray-300 mb-1">Adultes</div>
                   <div className="font-bold text-sm sm:text-base">Mer & Ven 20h-22h</div>
+                </div>
+                <div className="bg-blue-500/30 border border-blue-400/40 rounded-sm p-3 relative overflow-hidden">
+                  <div className="absolute top-1 right-1 bg-blue-400 text-white text-[8px] font-bold px-1.5 py-0.5 rounded uppercase">Nouveau</div>
+                  <div className="text-xs uppercase text-blue-200 mb-1">Enfants</div>
+                  <div className="font-bold text-sm sm:text-base">Lun 17h-19h</div>
                 </div>
                 <div className="bg-white/10 border border-white/10 rounded-sm p-3">
                   <div className="text-xs uppercase text-gray-300 mb-1">Disciplines</div>
@@ -129,6 +134,16 @@ const Home: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 gap-3">
+                  <div className="flex items-center justify-between border-2 border-blue-300 bg-blue-50 rounded-sm px-3 py-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                      <div className="flex flex-col">
+                        <span className="text-sm font-semibold text-black">Lundi 17h-19h</span>
+                        <span className="text-xs text-blue-600 font-medium">Cours Enfants (6-14 ans)</span>
+                      </div>
+                    </div>
+                    <span className="text-xs text-gray-500">Saint-Ouen</span>
+                  </div>
                   {["Mercredi 20h-22h", "Vendredi 20h-22h", "Dimanche 10h-13h"].map((slot, i) => (
                     <div key={i} className="flex items-center justify-between border border-gray-200 rounded-sm px-3 py-2">
                       <div className="flex items-center gap-2">
@@ -169,6 +184,7 @@ const Home: React.FC = () => {
               "Saint-Ouen (93) • Centre Pablo Neruda",
               "Mer & Ven 20h-22h",
               "Dimanche 10h-13h (compétition)",
+              "Nouveau : Cours Enfants Lundi 17h-19h",
               "Essai gratuit sans engagement",
               "No-Gi Only"
             ];
@@ -211,6 +227,12 @@ const Home: React.FC = () => {
                <p>
                  Loin des bagarres de rue, nous enseignons une science du mouvement. Le club est mixte, ouvert à tous dès 15 ans, et prône le respect, l'humilité et le dépassement de soi.
                </p>
+               <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-sm">
+                 <p className="text-blue-900 font-semibold flex items-center gap-2 text-sm sm:text-base">
+                   <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">NOUVEAU</span>
+                   Cours JJB No-Gi pour enfants (6-14 ans) tous les lundis !
+                 </p>
+               </div>
              </div>
              <div className="mt-4 sm:mt-6 md:mt-8 flex gap-4">
                 <Link to="/disciplines" className="inline-flex items-center gap-2 font-bold uppercase text-xs sm:text-sm md:text-base text-black border-b-2 border-brand-red pb-1 hover:text-brand-red transition-colors">

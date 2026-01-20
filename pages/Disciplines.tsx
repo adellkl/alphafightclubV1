@@ -248,7 +248,8 @@ const Disciplines: React.FC = () => {
               </h2>
               <div className="space-y-3">
                 {[
-                  'Ouvert à tous dès 15 ans (avec autorisation parentale)',
+                  'Cours Enfants : 6-14 ans (lundis)',
+                  'Cours Adultes : dès 15 ans (avec autorisation parentale)',
                   'Débutants absolus bienvenus',
                   'Hommes et femmes - Mixte',
                   'Tous les niveaux de condition physique',
@@ -287,6 +288,11 @@ const Disciplines: React.FC = () => {
               </div>
               <div className="space-y-3 text-sm">
                 <div>
+                  <p className="font-semibold mb-1 text-blue-300">Lundi - Cours Enfants</p>
+                  <p className="text-white">17h00 - 18h00 (6-9 ans)</p>
+                  <p className="text-white">18h00 - 19h00 (10-14 ans)</p>
+                </div>
+                <div className="pt-3 border-t border-gray-700">
                   <p className="font-semibold mb-1 text-white">Mercredi & Vendredi</p>
                   <p className="text-white">20h00 - 22h00</p>
                   <p className="text-white text-xs mt-1">Tous niveaux</p>
