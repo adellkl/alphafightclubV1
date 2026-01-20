@@ -17,38 +17,25 @@ const Navbar: React.FC = () => {
   // Block body scroll when mobile menu is open
   useEffect(() => {
     if (isOpen) {
-      // Save current scroll position
-      const scrollY = window.scrollY;
-      // Block body scroll
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
+      // Block body scroll without changing position
       document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '0px'; // Prevent layout shift
     } else {
       // Restore body scroll
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
       document.body.style.overflow = '';
-      // Restore scroll position
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
-      }
+      document.body.style.paddingRight = '';
     }
 
     // Cleanup function
     return () => {
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
       document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
     };
   }, [isOpen]);
 
   return (
-    <nav className="fixed w-full z-50 bg-white border-b border-gray-100 py-3 md:py-4 shadow-sm">
-      <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
+    <nav className="fixed w-full z-[110] bg-white border-b border-gray-100 py-3 md:py-4 shadow-sm">
+      <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center relative">
         {/* Logo */}
         <NavLink to="/" className="text-lg sm:text-xl md:text-2xl font-display font-bold italic tracking-tighter uppercase flex items-center gap-1 group">
           <span className="text-brand-red group-hover:scale-105 transition-transform">ALPHA</span>
@@ -119,7 +106,7 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden relative z-50 w-10 h-10 flex items-center justify-center text-black focus:outline-none"
+          className="lg:hidden relative w-10 h-10 flex items-center justify-center text-black focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -164,7 +151,7 @@ const Navbar: React.FC = () => {
               stiffness: 200,
               duration: 0.4
             }}
-            className="lg:hidden fixed top-[69px] right-0 w-full sm:w-96 h-[calc(100vh-69px)] bg-white shadow-2xl z-50 overflow-y-auto"
+            className="lg:hidden fixed top-[69px] right-0 w-full sm:w-96 h-[calc(100vh-69px)] bg-white shadow-2xl z-[100] overflow-y-auto"
           >
             <div className="p-4 space-y-1">
               {NAV_ITEMS.map((item, idx) => (
