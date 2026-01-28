@@ -186,6 +186,11 @@ export const PARTNERS: Partner[] = [
     url: "https://www.fflutte.com/"
   },
   {
+    name: "Confédération Française de Jiu-Jitsu Brésilien",
+    logo: "/images/partenaires/LOGO CFJJB.jpg",
+    url: "https://www.cfjjb.com/"
+  },
+  {
     name: "Ville de Saint-Ouen",
     logo: "/images/partenaires/_wsb_226x165_ville-saintouen.jpg",
     url: "#"

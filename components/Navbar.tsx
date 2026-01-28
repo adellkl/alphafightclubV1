@@ -37,10 +37,16 @@ const Navbar: React.FC = () => {
     <nav className="fixed w-full z-[110] bg-white border-b border-gray-100 py-3 md:py-4 shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center relative">
         {/* Logo */}
-        <NavLink to="/" className="text-lg sm:text-xl md:text-2xl font-display font-bold italic tracking-tighter uppercase flex items-center gap-1 group">
-          <span className="text-brand-red group-hover:scale-105 transition-transform">ALPHA</span>
-          <span className="text-black group-hover:text-gray-700 transition-colors hidden sm:inline">Fight Club</span>
-          <span className="text-black group-hover:text-gray-700 transition-colors sm:hidden">FC</span>
+        <NavLink to="/" className="flex items-center gap-2 sm:gap-3 group">
+          <img
+            src="/images/Logo-Club.jpeg"
+            alt="Alpha Fight Club Logo"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-gray-200 group-hover:border-brand-red transition-colors"
+          />
+          <span className="text-lg sm:text-xl md:text-2xl font-display font-bold italic tracking-tighter uppercase flex items-center gap-1">
+            <span className="text-brand-red">ALPHA</span>
+            <span className="text-black">Fight Club</span>
+          </span>
         </NavLink>
 
         {/* Desktop Menu */}
