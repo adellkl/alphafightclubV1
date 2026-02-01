@@ -58,5 +58,16 @@ export const FIGHTERS_DATA: Fighter[] = [
     image: "/images/competitor/Marin.jpg",
     specialty: "Grappling complet",
     quote: "Toujours avancer, jamais reculer."
+  },
+  {
+    name: "Isabelle",
+    nickname: "",
+    weight: "-63kg",
+    belt: "Purple Belt",
+    record: { wins: 14, losses: 0, draws: 0 },
+    achievements: [],
+    image: "/images/competitor/Isabelle.jpeg",
+    specialty: "Grappling",
+    quote: "La constance forge la soumission."
   }
 ];

@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
           <img
             src="/images/Logo-Club.jpeg"
             alt="Alpha Fight Club Logo"
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-gray-200 group-hover:border-brand-red transition-colors"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-gray-200"
           />
           <span className="text-lg sm:text-xl md:text-2xl font-display font-bold italic tracking-tighter uppercase flex items-center gap-1">
             <span className="text-brand-red">ALPHA</span>

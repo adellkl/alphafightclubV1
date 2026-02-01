@@ -45,7 +45,7 @@ export const FEATURES: Feature[] = [
   {
     icon: Users,
     title: "Mixte & Accessible",
-    description: "Ouvert à tous (hommes et femmes) dès 15 ans. Nouveauté : cours pour enfants de 6 à 14 ans les lundis !"
+    description: "Ouvert à tous (hommes et femmes) dès 15 ans. Cours enfants Grappling, Jiu-Jitsu et Luta Livre (6-14 ans) les lundis 17h-19h !"
   },
   {
     icon: Trophy,

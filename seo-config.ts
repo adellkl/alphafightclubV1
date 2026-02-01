@@ -31,12 +31,52 @@ const baseKeywords = [
   'paris', '75', 'val-de-marne', '94', 'yvelines', '78', 'essonne', '91',
   'val-d\'oise', '95', 'seine-et-marne', '77',
 
-  // Île-de-France - villes principales
+  // Île-de-France - TOUTES les villes (référencement local complet)
   'île-de-france', 'ile de france', 'région parisienne', 'grand paris',
-  'nanterre', 'boulogne-billancourt', 'boulogne', 'neuilly-sur-seine', 'neuilly',
-  'levallois-perret', 'levallois', 'courbevoie', 'puteaux', 'la défense',
-  'colombes', 'rueil-malmaison', 'argenteuil', 'montreuil', 'créteil',
-  'versailles', 'évry', 'cergy', 'pontoise',
+  // Paris (75) - arrondissements
+  'paris 1', 'paris 2', 'paris 3', 'paris 4', 'paris 5', 'paris 6', 'paris 7', 'paris 8', 'paris 9', 'paris 10',
+  'paris 11', 'paris 12', 'paris 13', 'paris 14', 'paris 15', 'paris 16', 'paris 17', 'paris 18', 'paris 19', 'paris 20',
+  'paris nord', 'paris ouest', 'paris est', 'paris sud', 'paris centre',
+  // Seine-Saint-Denis (93)
+  'aubervilliers', 'aubervilliers 93', 'bobigny', 'bobigny 93', 'drancy', 'drancy 93', 'pantin', 'pantin 93',
+  'noisy-le-grand', 'noisy le grand', 'aulnay-sous-bois', 'aulnay sous bois', 'aulnay 93',
+  'bondy', 'bondy 93', 'la courneuve', 'la courneuve 93', 'stains', 'stains 93',
+  'romainville', 'les lilas', 'bagnolet', 'bagnolet 93', 'noisy-le-sec', 'noisy le sec',
+  'rosny-sous-bois', 'rosny sous bois', 'villepinte', 'le blanc-mesnil', 'blanc mesnil',
+  'sevran', 'livry-gargan', 'villemomble', 'montreuil', 'montreuil 93',
+  // Hauts-de-Seine (92)
+  'nanterre', 'nanterre 92', 'boulogne-billancourt', 'boulogne billancourt', 'boulogne 92',
+  'colombes', 'colombes 92', 'courbevoie', 'courbevoie 92', 'levallois-perret', 'levallois perret', 'levallois 92',
+  'neuilly-sur-seine', 'neuilly sur seine', 'neuilly 92', 'rueil-malmaison', 'rueil malmaison', 'rueil 92',
+  'antony', 'antony 92', 'issy-les-moulineaux', 'issy les moulineaux', 'issy 92',
+  'clamart', 'suresnes', 'puteaux', 'puteaux 92', 'vanves', 'malakoff',
+  'châtenay-malabry', 'meudon', 'bagneux', 'sceaux', 'asnières-sur-seine', 'asnières 92',
+  'bois-colombes', 'bois colombes', 'la garenne-colombes', 'garenne colombes',
+  // Val-de-Marne (94)
+  'vitry-sur-seine', 'vitry sur seine', 'vitry 94', 'saint-maur-des-fossés', 'saint maur',
+  'champigny-sur-marne', 'champigny 94', 'ivry-sur-seine', 'ivry sur seine', 'ivry 94',
+  'villejuif', 'villejuif 94', 'vincennes', 'vincennes 94', 'alfortville', 'alfortville 94',
+  'charenton-le-pont', 'charenton', 'créteil', 'créteil 94', 'maisons-alfort', 'maisons alfort',
+  'fontenay-sous-bois', 'fontenay sous bois', 'nogent-sur-marne', 'nogent sur marne',
+  // Val-d'Oise (95)
+  'argenteuil', 'argenteuil 95', 'sarcelles', 'sarcelles 95', 'cergy', 'cergy 95',
+  'garges-lès-gonesse', 'garges', 'franconville', 'pontoise', 'pontoise 95',
+  'bezons', 'bezons 95', 'ermont', 'villiers-le-bel', 'gonesse', 'goussainville',
+  'taverny', 'sannois', 'montigny-lès-cormeilles', 'herblay-sur-seine', 'herblay',
+  // Yvelines (78)
+  'versailles', 'versailles 78', 'sartrouville', 'sartrouville 78', 'mantes-la-jolie', 'mantes 78',
+  'saint-germain-en-laye', 'saint germain en laye', 'poissy', 'poissy 78',
+  'conflans-sainte-honorine', 'conflans', 'montigny-le-bretonneux', 'saint-quentin-en-yvelines',
+  'les mureaux', 'trappes', 'plaisir', 'maisons-laffitte', 'chatou', 'le chesnay',
+  'velizy-villacoublay', 'rambouillet', 'guyancourt',
+  // Essonne (91)
+  'évry', 'evry', 'évry-courcouronnes', 'evry courcouronnes', 'corbeil-essonnes', 'corbeil',
+  'massy', 'massy 91', 'savigny-sur-orge', 'savigny 91',
+  'palaiseau', 'palaiseau 91', 'viry-châtillon', 'yerres', 'ris-orangis', 'ris orangis',
+  'brunoy', 'draveil', 'longjumeau', 'grigny', 'sainte-geneviève-des-bois', 'sainte geneviève des bois',
+  // Seine-et-Marne (77)
+  'meaux', 'meaux 77', 'melun', 'melun 77', 'pontault-combault', 'villeparisis',
+  'chelles', 'chelles 77', 'lagny-sur-marne', 'lagny', 'fontainebleau', 'combs-la-ville',
 
   // Quartiers et transports
   'métro 13', 'ligne 13', 'métro saint-ouen', 'mairie de saint-ouen',
@@ -50,31 +90,59 @@ const baseKeywords = [
   'débutant', 'cours débutant', 'adultes', 'ados', 'mixte',
   'fflda', 'fédération française de lutte',
 
-  // Cours enfants
+  // Cours enfants - Grappling, Jiu-Jitsu, Luta Livre (mots-clés stratégiques SEO)
   'cours enfants', 'cours enfant', 'grappling enfants', 'jjb enfants', 'jiu jitsu enfants',
-  'sport combat enfants', 'arts martiaux enfants', 'cours enfants saint-ouen',
-  'activité sportive enfants', 'club enfants', 'école jjb enfants', 'école grappling enfants',
-  'inscrire mon enfant grappling', 'inscrire mon enfant jjb', 'cours jjb jeunes',
-  'grappling pour enfants', 'jiu jitsu brésilien enfants', 'no-gi enfants',
-  'sport de combat 6 ans', 'sport de combat 7 ans', 'sport de combat 8 ans',
-  'sport de combat 9 ans', 'sport de combat 10 ans', 'arts martiaux 6-14 ans',
+  'cours enfant grappling', 'cours enfant jiu jitsu', 'cours enfant luta livre',
+  'grappling enfant saint-ouen', 'jiu jitsu enfant saint-ouen', 'luta livre enfant saint-ouen',
+  'cours grappling enfant paris', 'cours jjb enfant paris', 'cours luta livre enfant paris',
+  'grappling enfants saint-ouen', 'jiu jitsu enfants saint-ouen', 'luta livre enfants saint-ouen',
+  'grappling enfants paris', 'jiu jitsu enfants paris', 'luta livre enfants paris',
+  'grappling enfants 93', 'jiu jitsu enfants 93', 'luta livre enfants 93',
+  'cours grappling enfants île de france', 'cours jjb enfants île de france', 'cours luta livre enfants',
+  'meilleur club grappling enfant', 'meilleur club jiu jitsu enfant', 'club grappling enfant saint-ouen',
+  'club jiu jitsu enfant saint-ouen', 'club luta livre enfant', 'école grappling enfant',
+  'école jiu jitsu enfant', 'école luta livre enfant', 'sport combat enfants',
+  'arts martiaux enfants', 'cours enfants saint-ouen', 'activité sportive enfants',
+  'club enfants', 'école jjb enfants', 'école grappling enfants', 'école luta livre enfants',
+  'inscrire mon enfant grappling', 'inscrire mon enfant jjb', 'inscrire mon enfant luta livre',
+  'cours jjb jeunes', 'grappling pour enfants', 'jiu jitsu brésilien enfants',
+  'luta livre pour enfants', 'jiu jitsu pour enfants', 'grappling pour enfants saint-ouen',
+  'no-gi enfants', 'nogi enfants', 'sport de combat 6 ans', 'sport de combat 7 ans',
+  'sport de combat 8 ans', 'sport de combat 9 ans', 'sport de combat 10 ans',
+  'arts martiaux 6-14 ans', 'grappling 6 ans', 'jiu jitsu 6 ans', 'luta livre 6 ans',
   'cours jjb enfants paris', 'grappling enfants 93', 'jjb enfants saint-ouen',
-  'activité enfant saint-ouen', 'sport enfant 93', 'cours lutte enfants',
+  'luta livre enfants 93', 'activité enfant saint-ouen', 'sport enfant 93',
+  'cours lutte enfants', 'lutte libre enfants', 'submission wrestling enfants',
   'self défense enfants', 'confiance en soi enfants', 'discipline enfants',
   'cours martial arts enfants', 'ecole combat enfants', 'stage grappling enfants',
+  'stage jiu jitsu enfants', 'stage luta livre enfants', 'baby grappling',
+  'grappling 6-9 ans', 'grappling 10-14 ans', 'jjb 6-9 ans', 'jjb 10-14 ans',
+  'club grappling enfant 93', 'club jjb enfant 93', 'cours combat sol enfants',
 
-  // Longue traîne et requêtes spécifiques
-  'club grappling près de moi', 'cours mma près de moi', 'jjb paris nord',
-  'où pratiquer grappling paris', 'meilleur club grappling île de france',
+  // Longue traîne - requêtes locales Île-de-France (toutes villes)
+  'club grappling près de moi', 'cours grappling près de moi', 'jjb près de moi',
+  'club grappling paris', 'club grappling saint-denis', 'club grappling clichy',
+  'club grappling aubervilliers', 'club grappling pantin', 'club grappling bobigny',
+  'club grappling montreuil', 'club grappling nanterre', 'club grappling colombes',
+  'club grappling boulogne', 'club grappling levallois', 'club grappling courbevoie',
+  'club grappling argenteuil', 'club grappling vitry', 'club grappling créteil',
+  'club grappling évry', 'club grappling versailles', 'club grappling massy',
+  'cours grappling paris', 'cours grappling saint-denis', 'cours grappling clichy',
+  'cours grappling 93', 'cours grappling 92', 'cours grappling 94',
+  'meilleur club grappling île de france', 'meilleur club grappling paris',
+  'meilleur club jjb île de france', 'club grappling accessible métro',
+  'jjb paris nord', 'grappling paris nord', 'où pratiquer grappling paris',
+  'où pratiquer grappling saint-denis', 'où pratiquer jiu jitsu 93',
   'cours grappling débutant saint-ouen', 'apprendre grappling 93',
-  'club mma accessible métro 13', 'sport combat saint-ouen',
+  'club mma accessible métro 13', 'sport combat saint-ouen', 'sport combat 93',
   'cours soumission paris', 'lutte brésilienne paris', 'no-gi training paris',
   'grappling femmes saint-ouen', 'cours arts martiaux mixtes',
   'entraînement grappling adultes', 'club combat sportif 93',
-  'pankration france', 'luta livre paris', 'submission wrestling',
+  'pankration france', 'luta livre paris', 'luta livre saint-ouen', 'luta livre enfants', 'submission wrestling',
   'cours combat au sol', 'jiu jitsu sans kimono', 'grappling competition training',
   'club champion grappling', 'entraînement mma saint-ouen',
-  'cours self defense efficace', 'sport combat femmes paris'
+  'cours self defense efficace', 'sport combat femmes paris',
+  'grappling île de france', 'jjb île de france', 'club mma île de france'
 ].join(', ');
 
 // Image OG par défaut
@@ -86,7 +154,7 @@ const organizationSchema = {
   '@type': ['SportsOrganization', 'LocalBusiness'],
   name: 'Alpha Fight Club',
   alternateName: ['AFC Saint-Ouen', 'Alpha Fight Club Saint-Ouen'],
-  description: 'Site officiel de l\'Alpha Fight Club de Saint-Ouen (93) L\'un des meilleurs club de sport de combat à proximité de Paris et en Île-de-France.',
+  description: 'Alpha Fight Club Saint-Ouen : club de Grappling, Jiu-Jitsu et Luta Livre #1 en Île-de-France. Accessible depuis Paris, 92, 93, 94, 95, 77, 78, 91. Meilleur club de sport de combat pour toute la région parisienne.',
   url: baseUrl,
   logo: `${baseUrl}/images/logo.png`,
   image: defaultOgImage,
@@ -112,7 +180,7 @@ const organizationSchema = {
       dayOfWeek: 'Monday',
       opens: '17:00',
       closes: '19:00',
-      description: 'Cours JJB No-Gi Enfants (6-14 ans)'
+      description: 'Cours Grappling, Jiu-Jitsu et Luta Livre Enfants (6-14 ans)'
     },
     {
       '@type': 'OpeningHoursSpecification',
@@ -139,9 +207,17 @@ const organizationSchema = {
     'Paris',
     'Hauts-de-Seine',
     'Seine-Saint-Denis',
-    'Île-de-France'
+    'Val-de-Marne',
+    'Val-d\'Oise',
+    'Yvelines',
+    'Essonne',
+    'Seine-et-Marne',
+    'Île-de-France',
+    'Aubervilliers', 'Saint-Denis', 'Clichy', 'Pantin', 'Bobigny', 'Montreuil',
+    'Nanterre', 'Boulogne-Billancourt', 'Colombes', 'Levallois-Perret', 'Argenteuil',
+    'Créteil', 'Vitry-sur-Seine', 'Versailles', 'Évry', 'Meaux', 'Melun', 'Cergy'
   ],
-  sport: ['Grappling', 'Brazilian Jiu-Jitsu', 'MMA', 'Wrestling', 'Submission Grappling'],
+  sport: ['Grappling', 'Brazilian Jiu-Jitsu', 'Jiu-Jitsu', 'Luta Livre', 'MMA', 'Wrestling', 'Submission Grappling', 'No-Gi'],
   memberOf: {
     '@type': 'Organization',
     name: 'Fédération Française de Lutte et Disciplines Associées',
@@ -175,9 +251,9 @@ const createBreadcrumb = (items: { name: string; url: string }[]) => ({
 
 export const seoConfig: { [key: string]: SEOConfig } = {
   home: {
-    title: 'AFC | Alpha Fight Club Saint-Ouen 93 | Adultes & Enfants',
-    description: 'Alpha Fight Club Saint-Ouen (93) : cours de Grappling No-Gi pour adultes et enfants (6-14 ans). Club de JJB, MMA et sport de combat à proximité de Paris. Essai gratuit.',
-    keywords: `${baseKeywords}, club saint-ouen, club mma paris, club grappling paris, club jjb paris, cours mma ile de france, arts martiaux saint-ouen, inscrire mon enfant grappling, cours enfants saint-ouen, jjb enfants 93`,
+    title: 'AFC | #1 Club Grappling Île-de-France | Saint-Ouen 93 | Paris 92 94 95',
+    description: 'Alpha Fight Club Saint-Ouen : club de Grappling #1 en Île-de-France. Cours enfants et adultes. Accessible Paris, 92, 93, 94, 95, 77, 78, 91. Meilleur club Jiu-Jitsu et Luta Livre pour toute la région. Essai gratuit.',
+    keywords: `${baseKeywords}, club grappling île de france, club grappling paris, club grappling 93, club grappling 92, club grappling 94, club grappling saint-denis, club grappling clichy, club grappling nanterre, club grappling montreuil, club grappling argenteuil, club grappling créteil, club grappling versailles, meilleur club grappling paris, meilleur club jjb île de france`,
     canonicalUrl: baseUrl,
     ogImage: defaultOgImage,
     ogType: 'website',
@@ -246,6 +322,38 @@ export const seoConfig: { [key: string]: SEOConfig } = {
               '@type': 'Answer',
               'text': 'Les enfants peuvent commencer le JJB No-Gi dès 6 ans à Alpha Fight Club. Nous proposons deux groupes : 6-9 ans et 10-14 ans, avec des cours adaptés au développement physique et mental de chaque tranche d\'âge. Un cours d\'essai gratuit est disponible pour tous les enfants.'
             }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Où trouver des cours de Jiu-Jitsu pour enfants à Saint-Ouen ?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Alpha Fight Club propose des cours de Jiu-Jitsu Brésilien No-Gi pour enfants à Saint-Ouen (93) au Centre Sportif Pablo Neruda. Les cours ont lieu tous les lundis : 17h-18h pour les 6-9 ans et 18h-19h pour les 10-14 ans. Métro ligne 13, Mairie de Saint-Ouen.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Où pratiquer le Grappling pour enfants en Île-de-France ?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Alpha Fight Club à Saint-Ouen (93) est l\'un des meilleurs clubs de Grappling pour enfants en Île-de-France. Nos cours enfants intègrent le Grappling, le Jiu-Jitsu Brésilien et le Luta Livre dans un enseignement ludique adapté aux 6-14 ans. Accessible depuis Paris, Clichy et Saint-Denis.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Proposez-vous des cours de Luta Livre pour enfants ?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Oui, nos cours enfants à Alpha Fight Club intègrent les techniques de Luta Livre, Grappling et Jiu-Jitsu Brésilien No-Gi. Les enfants découvrent la lutte brésilienne sans kimono dans un cadre sécurisé et pédagogique. Cours le lundi 17h-19h pour les 6-14 ans à Saint-Ouen.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'Alpha Fight Club dessert-il toute l\'Île-de-France ?',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'Oui, Alpha Fight Club à Saint-Ouen (93) accueille les pratiquants de toute l\'Île-de-France : Paris, Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Val-d\'Oise (95), Yvelines (78), Essonne (91), Seine-et-Marne (77). Accessible en métro ligne 13 (Mairie de Saint-Ouen) depuis Paris, Clichy, Saint-Denis, Aubervilliers, Pantin et toute la région.'
+            }
           }
         ]
       }
@@ -253,9 +361,9 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   disciplines: {
-    title: 'AFC | Grappling No-Gi | Adultes & Enfants | Saint-Ouen 93',
-    description: 'Découvrez le Grappling No-Gi à Saint-Ouen : cours adultes et enfants (6-14 ans). Lutte, soumissions, combat au sol. JJB sans kimono. Accessible depuis Paris, Clichy, Saint-Denis. Débutants bienvenus.',
-    keywords: `${baseKeywords}, qu'est-ce que le grappling, grappling no-gi, technique grappling, cours grappling paris, grappling vs jjb, grappling vs mma, combat au sol paris, grappling pour enfants, jjb enfants paris`,
+    title: 'AFC | Grappling, Jiu-Jitsu & Luta Livre | #1 Île-de-France | Saint-Ouen 93',
+    description: 'Grappling, Jiu-Jitsu et Luta Livre à Saint-Ouen : club #1 en Île-de-France. Cours enfants et adultes. Accessible Paris, 92, 93, 94, 95. Lutte, soumissions, combat au sol No-Gi. Essai gratuit.',
+    keywords: `${baseKeywords}, club grappling île de france, cours grappling paris, cours grappling 93, cours grappling saint-denis, cours grappling clichy, grappling no-gi, technique grappling, jjb enfants paris, cours enfant grappling, luta livre 93`,
     canonicalUrl: `${baseUrl}/disciplines`,
     ogImage: defaultOgImage,
     ogType: 'article',
@@ -294,9 +402,9 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   pricing: {
-    title: 'AFC | Tarifs Adultes & Enfants | Alpha Fight Club Saint-Ouen 93',
-    description: 'Tarifs Alpha Fight Club Saint-Ouen : 230€ Audoniens, 245€ autres. Cours adultes et enfants (6-14 ans). Licence FFLDA incluse. Grappling, JJB No-Gi. Essai gratuit. Paris, 92, 93.',
-    keywords: `${baseKeywords}, tarif club grappling, prix cours mma, adhésion club combat, tarif jjb paris, prix club sportif saint-ouen, licence fflda, tarif cours enfants, prix jjb enfants, inscription enfant grappling`,
+    title: 'AFC | Tarifs Cours Enfants Grappling, Jiu-Jitsu & Luta Livre | Saint-Ouen 93',
+    description: 'Tarifs cours enfants Grappling, Jiu-Jitsu et Luta Livre à Saint-Ouen. 230€ Audoniens, 245€ autres. Licence FFLDA incluse. Essai gratuit enfants et adultes. Paris, 93.',
+    keywords: `${baseKeywords}, tarif cours enfant grappling, prix cours jiu jitsu enfant saint-ouen, tarif cours luta livre enfant, inscription enfant grappling 93, prix jjb enfants paris, adhésion cours enfant sport combat saint-ouen`,
     canonicalUrl: `${baseUrl}/pricing`,
     ogImage: defaultOgImage,
     ogType: 'website',
@@ -321,9 +429,9 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   schedule: {
-    title: 'AFC | Planning | Alpha Fight Club Saint-Ouen 93 | Adultes & Enfants',
-    description: 'Horaires cours Grappling Saint-Ouen : Adultes Mer & Ven 20h-22h, Enfants (6-14 ans) Lundi 17h-19h, Compétition Dim 10h-13h. Métro ligne 13. Accessible Paris, Clichy, Saint-Denis.',
-    keywords: `${baseKeywords}, horaire cours grappling, planning mma paris, horaire jjb saint-ouen, cours soir grappling, entraînement mma ile de france, horaire cours enfants, planning jjb enfants, cours enfants lundi`,
+    title: 'AFC | Horaires | Club Grappling Île-de-France | Saint-Ouen 93',
+    description: 'Planning Alpha Fight Club : cours enfants Lundi 17h-19h, adultes Mer & Ven 20h-22h. Club Grappling #1 Île-de-France. Accessible Paris, 92, 93, 94, 95. Métro 13 Mairie Saint-Ouen.',
+    keywords: `${baseKeywords}, horaire club grappling paris, planning grappling 93, cours grappling saint-denis, horaire jjb île de france, cours enfants lundi saint-ouen, planning sport combat 92, horaire grappling 94`,
     canonicalUrl: `${baseUrl}/schedule`,
     ogImage: defaultOgImage,
     ogType: 'website',
@@ -343,8 +451,8 @@ export const seoConfig: { [key: string]: SEOConfig } = {
       {
         '@context': 'https://schema.org',
         '@type': 'Course',
-        name: 'Cours JJB No-Gi pour Enfants',
-        description: 'Cours de Jiu-Jitsu Brésilien No-Gi spécialement conçu pour les enfants de 6 à 14 ans. Apprentissage ludique et adapté à chaque tranche d\'âge.',
+        name: 'Cours Grappling, Jiu-Jitsu et Luta Livre pour Enfants',
+        description: 'Cours de Grappling, Jiu-Jitsu Brésilien No-Gi et Luta Livre pour enfants de 6 à 14 ans à Saint-Ouen. Apprentissage ludique du combat au sol, projections et soumissions adapté à chaque tranche d\'âge.',
         provider: {
           '@type': 'SportsOrganization',
           name: 'Alpha Fight Club',
@@ -464,9 +572,9 @@ export const seoConfig: { [key: string]: SEOConfig } = {
   },
 
   contact: {
-    title: 'AFC | Contact | Alpha Fight Club Saint-Ouen 93',
-    description: 'Contactez Alpha Fight Club Saint-Ouen. Centre Sportif Pablo Neruda, Métro ligne 13 Mairie de Saint-Ouen. Cours de Grappling, MMA, JJB en Île-de-France (93, 92, Paris).',
-    keywords: `${baseKeywords}, contact club grappling, inscription mma saint-ouen, rejoindre club jjb, essai gratuit grappling, cours découverte mma paris`,
+    title: 'AFC | Contact | Club Grappling Île-de-France | Saint-Ouen 93',
+    description: 'Contactez Alpha Fight Club : club Grappling #1 en Île-de-France. Inscription cours enfants et adultes. Saint-Ouen (93), accessible Paris, 92, 94, 95. Essai gratuit.',
+    keywords: `${baseKeywords}, contact club grappling paris, inscription club grappling 93, contact jjb saint-denis, inscrire club grappling île de france, essai gratuit grappling 92, contact sport combat 94`,
     canonicalUrl: `${baseUrl}/contact`,
     ogImage: defaultOgImage,
     ogType: 'website',

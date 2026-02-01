@@ -214,6 +214,37 @@ const Disciplines: React.FC = () => {
         </div>
       </Section>
 
+      {/* Section Cours Enfants - Grappling, Jiu-Jitsu, Luta Livre */}
+      <Section gray className="py-8 md:py-16">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-8 md:mb-12 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-black uppercase mb-4">
+              Cours Enfants : Grappling, Jiu-Jitsu & Luta Livre
+            </h2>
+            <div className="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
+              Alpha Fight Club propose des cours de Grappling, Jiu-Jitsu Brésilien No-Gi et Luta Livre pour les enfants de 6 à 14 ans à Saint-Ouen (93). L'un des meilleurs clubs de cours enfant grappling, jiu jitsu et luta livre en Île-de-France.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white p-6 rounded-sm border-l-4 border-blue-600 shadow-md">
+              <h3 className="font-display font-bold text-lg uppercase mb-3 text-black">Cours Grappling pour Enfants</h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-3">
+                Nos cours enfant grappling initient aux projections, au contrôle au sol et aux soumissions sans kimono. Ludique et adapté aux 6-14 ans.
+              </p>
+              <p className="text-sm font-semibold text-blue-600">Lundi 17h-18h (6-9 ans) • 18h-19h (10-14 ans)</p>
+            </div>
+            <div className="bg-white p-6 rounded-sm border-l-4 border-blue-600 shadow-md">
+              <h3 className="font-display font-bold text-lg uppercase mb-3 text-black">Cours Jiu-Jitsu & Luta Livre pour Enfants</h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-3">
+                Jiu-Jitsu Brésilien et Luta Livre pour enfants : techniques de combat au sol, lutte brésilienne No-Gi. Confiance en soi, discipline et respect.
+              </p>
+              <p className="text-sm font-semibold text-blue-600">Saint-Ouen • Métro 13 • Essai gratuit</p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
       {/* Équipement & Informations Pratiques */}
       <Section gray className="py-8 md:py-16">
         <div className="max-w-6xl mx-auto">
@@ -248,7 +279,7 @@ const Disciplines: React.FC = () => {
               </h2>
               <div className="space-y-3">
                 {[
-                  'Cours Enfants : 6-14 ans (lundis)',
+                  'Cours Enfants Grappling, Jiu-Jitsu & Luta Livre : 6-14 ans (lundis 17h-19h)',
                   'Cours Adultes : dès 15 ans (avec autorisation parentale)',
                   'Débutants absolus bienvenus',
                   'Hommes et femmes - Mixte',
@@ -288,7 +319,7 @@ const Disciplines: React.FC = () => {
               </div>
               <div className="space-y-3 text-sm">
                 <div>
-                  <p className="font-semibold mb-1 text-blue-300">Lundi - Cours Enfants</p>
+                  <p className="font-semibold mb-1 text-blue-300">Lundi - Cours Enfants Grappling, Jiu-Jitsu & Luta Livre</p>
                   <p className="text-white">17h00 - 18h00 (6-9 ans)</p>
                   <p className="text-white">18h00 - 19h00 (10-14 ans)</p>
                 </div>

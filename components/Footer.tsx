@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
               <img
                 src="/images/Logo-Club.jpeg"
                 alt="Alpha Fight Club Logo"
-                className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-gray-200 group-hover:border-brand-red transition-colors"
+                className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-gray-200"
               />
               <span className="text-2xl sm:text-3xl font-display font-bold italic uppercase">
                 <span className="text-brand-red">Alpha</span> Fight Club

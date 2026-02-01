@@ -139,7 +139,7 @@ const Home: React.FC = () => {
                       <div className="w-2 h-2 rounded-full bg-blue-600"></div>
                       <div className="flex flex-col">
                         <span className="text-sm font-semibold text-black">Lundi 17h-19h</span>
-                        <span className="text-xs text-blue-600 font-medium">Cours Enfants (6-14 ans)</span>
+                        <span className="text-xs text-blue-600 font-medium">Cours Enfants Grappling, JJB & Luta Livre (6-14 ans)</span>
                       </div>
                     </div>
                     <span className="text-xs text-gray-500">Saint-Ouen</span>
@@ -184,7 +184,7 @@ const Home: React.FC = () => {
               "Saint-Ouen (93) • Centre Pablo Neruda",
               "Mer & Ven 20h-22h",
               "Dimanche 10h-13h (compétition)",
-              "Nouveau : Cours Enfants Lundi 17h-19h",
+              "Nouveau : Cours Enfants Grappling, Jiu-Jitsu & Luta Livre Lundi 17h-19h",
               "Essai gratuit sans engagement",
               "No-Gi Only"
             ];
@@ -230,7 +230,7 @@ const Home: React.FC = () => {
                <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-sm">
                  <p className="text-blue-900 font-semibold flex items-center gap-2 text-sm sm:text-base">
                    <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">NOUVEAU</span>
-                   Cours JJB No-Gi pour enfants (6-14 ans) tous les lundis !
+                   Cours enfants Grappling, Jiu-Jitsu Brésilien et Luta Livre (6-14 ans) tous les lundis 17h-19h à Saint-Ouen !
                  </p>
                </div>
              </div>

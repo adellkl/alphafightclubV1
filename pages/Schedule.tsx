@@ -20,7 +20,7 @@ const Schedule: React.FC = () => {
         { time: "18:00 - 19:00", ageGroup: "10-14 ans", title: "JJB No-Gi Enfants" }
       ],
       coach: "Mathis & Anis",
-      description: "Cours de Jiu-Jitsu Brésilien No-Gi pour enfants"
+      description: "Cours de Grappling, Jiu-Jitsu Brésilien et Luta Livre pour enfants"
     },
     {
       day: "Mardi",
@@ -187,11 +187,11 @@ const Schedule: React.FC = () => {
               <span className="text-blue-600 font-bold uppercase tracking-widest text-xs">Nouveau</span>
             </div>
             <h2 className="text-2xl md:text-3xl font-display font-bold text-black uppercase mb-2">
-              Cours JJB No-Gi pour Enfants
+              Cours Enfants Grappling, Jiu-Jitsu & Luta Livre
             </h2>
             <div className="w-20 h-1 bg-blue-600 mb-4"></div>
             <p className="text-gray-600 text-base md:text-lg">
-              L'Alpha Fight Club propose désormais des cours de Jiu-Jitsu Brésilien No-Gi spécialement conçus pour les enfants.
+              L'Alpha Fight Club propose des cours de Grappling, Jiu-Jitsu Brésilien No-Gi et Luta Livre pour les enfants à Saint-Ouen (93). Cours enfant grappling, jiu jitsu et luta livre - le meilleur club pour les 6-14 ans en Île-de-France.
             </p>
           </div>
 
@@ -249,7 +249,7 @@ const Schedule: React.FC = () => {
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-700">
               <li className="flex items-start gap-2">
                 <span className="text-blue-600 mt-0.5">✓</span>
-                <span>Techniques de Jiu-Jitsu Brésilien No-Gi adaptées à leur âge</span>
+                <span>Techniques de Grappling, Jiu-Jitsu et Luta Livre adaptées à leur âge</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-blue-600 mt-0.5">✓</span>
